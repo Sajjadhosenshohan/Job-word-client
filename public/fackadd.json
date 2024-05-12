@@ -1,0 +1,32 @@
+[
+    {
+      "_id": "1",
+      "title": "Responsive Web Design Project",
+      "description": "Design a responsive website layout using HTML, CSS, and JavaScript. Ensure compatibility across various devices and screen sizes.",
+      "marks": 90,
+      "thumbnailImageUrl": "https://images.pexels.com/photos/4560083/pexels-photo-4560083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "difficultyLevel": "medium",
+      "dueDate": "2024-06-15",
+      "email": "example@example.com"
+    },
+    {
+      "_id": "2",
+      "title": "Search Engine Optimization (SEO)",
+      "description": "Conduct an SEO analysis for a given website, identify areas for improvement, and propose strategies to enhance search engine rankings.",
+      "marks": 80,
+      "thumbnailImageUrl": "https://images.pexels.com/photos/4132310/pexels-photo-4132310.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "difficultyLevel": "medium",
+      "dueDate": "2024-06-20",
+      "email": "example@example.com"
+    },
+    {
+      "_id": "3",
+      "title": "Social Media Marketing Campaign",
+      "description": "Develop a social media marketing campaign for a specific target audience, including content creation, audience engagement strategies, and performance metrics.",
+      "marks": 70,
+      "thumbnailImageUrl": "https://images.pexels.com/photos/5966011/pexels-photo-5966011.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "difficultyLevel": "hard",
+      "dueDate": "2024-06-10",
+      "email": "example@example.com"
+    }
+  ]
