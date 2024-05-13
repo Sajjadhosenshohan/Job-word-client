@@ -15,6 +15,8 @@ const UpdateAssignment = () => {
 
     const load = useLoaderData();
     console.log(load)
+
+    
     const { _id,
         assignment_title,
         assignment_level,

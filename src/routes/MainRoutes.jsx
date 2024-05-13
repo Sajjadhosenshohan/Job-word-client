@@ -10,6 +10,7 @@ import UpdateAssignment from "../pages/UpdateAssignment";
 import DetailsAssignment from "../pages/DetailsAssignment";
 import SubmissionForm from "../pages/SubmissionForm";
 import MyAttemptedAssignments from "../pages/MyAttemptedAssignments";
+import GiveMark from "../components/GiveMark";
 
 const router = createBrowserRouter([
     {
@@ -42,11 +43,13 @@ const router = createBrowserRouter([
                 path: "/details/:id",
                 element: <DetailsAssignment></DetailsAssignment>,
                 // loader: ()=> fetch('fackadd.json')
+                loader: ({params})=> fetch(`http://localhost:8000/updateData/${params.id}`)
             },
             {
-                path: "/submissionForm/:id",
+                path: "/submit/:id",
                 element: <SubmissionForm></SubmissionForm>,
                 // loader: ()=> fetch('fackadd.json')
+                loader: ({params})=> fetch(`http://localhost:8000/updateData/${params.id}`)
             },
             {
                 path: "/pendingAssignments",
@@ -58,7 +61,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myAttempted",
-                element: <MyAttemptedAssignments></MyAttemptedAssignments>
+                element: <MyAttemptedAssignments></MyAttemptedAssignments>,
+            },
+            {
+                path: "/giveMark/:id",
+                element: <GiveMark></GiveMark>,
             }
            
         ]

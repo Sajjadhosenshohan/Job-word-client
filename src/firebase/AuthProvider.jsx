@@ -29,7 +29,7 @@ const AuthProvider = ({children}) => {
     //       })
           
     // }
-    console.log("auth",loading)
+    // console.log("auth",loading)
 
 
     // sign in user

@@ -162,7 +162,7 @@ const Nav = () => {
 
                                 {/* ul */}
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-4 flex gap-2 shadow bg-base-100 rounded-box w-52">
-                                    <Link to={`myAttempted`}>
+                                    <Link to={`/myAttempted`}>
                                         <li>
                                             My attempted assignments
                                         </li>
