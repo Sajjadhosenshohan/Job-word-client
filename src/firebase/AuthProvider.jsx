@@ -1,11 +1,12 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut,} from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "./Firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState()
     // console.log(user)
 
@@ -27,7 +28,7 @@ const AuthProvider = ({children}) => {
     //         displayName: name,
     //         photoURL: image
     //       })
-          
+
     // }
     // console.log("auth",loading)
 
@@ -57,12 +58,28 @@ const AuthProvider = ({children}) => {
 
     // observer
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {  
-                setUser(user)
-            }
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            const loggedEmail = currentUser?.email || user?.email;
+            const loggedUser = { email: loggedEmail }
 
+
+            setUser(currentUser)
             setLoading(false)
+            // token send to server
+            if (currentUser) {
+                axios.post('http://localhost:8000/jwt', loggedUser, { withCredentials: true })
+
+                    .then(res => {
+                        console.log("token response", res.data)
+                    })
+            }
+            else {
+                axios.post('http://localhost:8000/jwt', loggedUser, { withCredentials: true })
+
+                    .then(res => {
+                        console.log("logout response", res.data)
+                    })
+            }
         });
 
         return () => {
@@ -70,7 +87,7 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
-    const Info = { createUser, signIn, googleLogin, githubLogin, user, logout, loading}
+    const Info = { createUser, signIn, googleLogin, githubLogin, user, logout, loading }
     return (
         <AuthContext.Provider value={Info}>
             {children}

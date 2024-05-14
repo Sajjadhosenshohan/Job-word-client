@@ -6,6 +6,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoMdMail } from "react-icons/io";
 
 const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
@@ -16,7 +18,7 @@ const UpdateAssignment = () => {
     const load = useLoaderData();
     console.log(load)
 
-    
+
     const { _id,
         assignment_title,
         assignment_level,
@@ -80,7 +82,7 @@ const UpdateAssignment = () => {
             </div>
 
 
-            <div className="flex gap-6">
+            {/* <div className="flex gap-6">
                 <div className="bg-white border-2 border-red-500 w-1/3">
                     <section >
                         <div className="container px-6 py-12 mx-auto">
@@ -198,7 +200,7 @@ const UpdateAssignment = () => {
                                 <div className='flex flex-col gap-2 '>
                                     <label className='text-gray-700'>Due date</label>
 
-                                    {/* Date Picker Input Field */}
+                                    
                                     <DatePicker
                                         className='border p-2 rounded-md'
                                         selected={startDate}
@@ -214,7 +216,7 @@ const UpdateAssignment = () => {
                                     </label>
                                     <select
                                         name='assignment_level'
-                                        id='assignment_level'
+                                        
                                         defaultValue={assignment_level}
                                         className='border p-2 rounded-md'
                                     >
@@ -254,6 +256,143 @@ const UpdateAssignment = () => {
                             <div className=' mt-6'>
                                 <button className='w-full px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-primary rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
                                     update
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div> */}
+
+            <div className="flex gap-6">
+                <div className="bg-white  w-1/3">
+                    <section >
+                        <div className="container space-y-8 px-6 py-6 mx-auto">
+                            <div>
+
+                                <h1 className="text-2xl font-semibold text-primary md:text-3xl">Company Information:</h1>
+
+                            </div>
+
+                            <div className="p-4 shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105 rounded-lg  overflow-hidden  duration-500 transform   hover:bg-opacity-80 ">
+                                <span className="inline-block p-3 rounded-lg bg-primary text-white">
+                                    <FaLocationDot />
+                                </span>
+
+                                <h2 className="mt-4 text-base font-medium">BJET Inc.</h2>
+                                <p className="mt-2 text-sm ">Tokeyo, Japan.</p>
+                                <p className="mt-2 text-sm text-primary flex justify-start items-center gap-1"><span><IoMdMail /> </span>
+                                    <span>hello@merakiui.com</span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+                <div className='  flex justify-center items-start min-h-[calc(100vh-306px)] w-2/3'>
+                    <section className='mt-6 w-full border-primary border-2 p-2 md:p-6 mx-auto  rounded-md shadow-md bg-secondary'>
+
+                        {/* <h1 className="text-2xl font-semibold text-primary md:text-3xl">Create Assignment:</h1> */}
+
+                        <form onSubmit={handleUpdate}>
+                            <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>
+                                <div>
+                                    <label className='text-gray-700 ' htmlFor='job_title'>
+                                        Assignment Title
+                                    </label>
+                                    <input
+                                        name='assignment_title'
+                                        type='text'
+                                        defaultValue={assignment_title}
+                                        className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className='text-gray-700 '>
+                                        Email Address
+                                    </label>
+                                    <input
+                                        id='emailAddress'
+                                        type='email'
+                                        name='email'
+                                        disabled
+                                        defaultValue={user?.email}
+                                        className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className='text-gray-700 '>
+                                        Marks
+                                    </label>
+                                    <input
+                                        type='number'
+                                        name='marks'
+                                        defaultValue={marks}
+
+
+                                        className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                    />
+                                </div>
+                                <div className='flex flex-col gap-2 '>
+                                    <label className='text-gray-700'>Due date</label>
+
+                                    {/* Date Picker Input Field */}
+                                    <DatePicker
+                                        className='border p-2 rounded-md'
+                                        selected={startDate}
+                                        defaultValue={due_date}
+                                        onChange={date => setStartDate(date)}
+                                    />
+                                </div>
+
+                                <div className='flex flex-col gap-2 '>
+                                    <label className='text-gray-700 '>
+                                        Assignment level
+                                    </label>
+                                    <select
+                                        name='assignment_level'
+                                        
+                                        defaultValue={assignment_level}
+                                        className='border p-2 rounded-md'
+                                    >
+                                        <option value='Easy'>Easy</option>
+                                        <option value='Medium'>Medium</option>
+                                        <option value='Hard'>Hard</option>
+                                    </select>
+                                </div>
+
+                                <div className='flex flex-col gap-2 '>
+                                    <label className='text-gray-700 '>
+                                        Thumbnail Image URL
+                                    </label>
+
+                                    <input
+                                        name='thumbnail'
+                                        type="text"
+                                        defaultValue={thumbnail}
+                                        className='border p-2 rounded-md'
+                                    >
+                                    </input>
+                                </div>
+
+                            </div>
+                            <div className='flex flex-col gap-2 mt-4'>
+                                <label className='text-gray-700 ' htmlFor='description'>
+                                    Description
+                                </label>
+                                <textarea
+                                    
+                                    defaultValue={description}
+                                    className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                    name='description'
+                                    id='description'
+                                ></textarea>
+                            </div>
+                            <div className=' mt-6'>
+                                <button type="submit" className='w-full px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-primary rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
+                                    Update
                                 </button>
                             </div>
                         </form>

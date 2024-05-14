@@ -21,81 +21,126 @@ const GiveMark = () => {
 
         submitToServer();
     }, [id])
-    // const {
-    //     email,
-    //     assignment_title,
-    //     assignment_level,
-    //     marks,
-    //     description,
-    //     due_date,
-    //     thumbnail,
-    // } = load
-    // const handleSubmit = (event) => {
+    const {
+        email,
+        assignment_title,
+        assignment_level,
+        marks,
+        description,
+        due_date,
+        thumbnail,
+    } = markForm
+
+    // const handleGiveMark = (event,_id, prevStatus, status) => {
     //     event.preventDefault()
-    //     // const form = event.target;
-    //     // const pdfLink = form.pdfLink.value;
-    //     // const notes = form.notes.value;
+        
+    //     const form = event.target;
+    //     const pdfLink = form.pdfLink.value;
+    //     const notes = form.notes.value;
+    //     const giveMark = form.giveMark.value;
+    //     const feedback = form.feedback.value;
 
+    //     console.log(_id,prevStatus,status)
 
-    //     // const submitData = {
-    //     //     my_email: email,
-    //     //     assignment_title,
-    //     //     assignment_level,
-    //     //     marks,
-    //     //     description,
-    //     //     due_date,
-    //     //     thumbnail,
-    //     //     examiner: {
-    //     //         examiner_email: user?.email,
-    //     //         examiner_name: user?.displayName,
-    //     //     },
-    //     //     status,
-    //     //     pdfLink,
-    //     //     notes
+        
+    //     const submitData = {
+    //         email,
+    //         assignment_title,
+    //         assignment_level,
+    //         marks,
+    //         description,
+    //         due_date,
+    //         thumbnail,
+            
+    //         status,
+    //         pdfLink,
+    //         notes
 
-    //     // };
-    //     // console.log(submitData)
+    //     };
+    //     console.log(submitData)
 
 
 
     // }
-    // handleStatus
-    const handleStatus = async (_id, prevStatus, status) => {
-        try {
-            const { data } = await axios.patch(`http://localhost:8000/statusUpdate/${_id}`, {status});
-            console.log(data);
-            setMarkForm(data)
+    // // handleStatus
+    // const handleStatus = async () => {
 
+        
+    //     try {
+    //         const { data } = await axios.patch(`http://localhost:8000/statusUpdate/${_id}`, );
+    //         console.log(data);
+    //         setMarkForm(data)
+
+    //     } catch (error) {
+    //         console.error(error, "vul val");
+    //     }
+    // }
+
+    const handleGiveMark = (event, _id, prevStatus, status) => {
+        event.preventDefault();
+    
+        const form = event.target;
+        const pdfLink = form.pdfLink.value;
+        const notes = form.notes.value;
+        const giveMark = form.giveMark.value;
+        const feedback = form.feedback.value;
+    
+        console.log(_id, prevStatus, status);
+    
+        const submitData = {
+            email, 
+            assignment_title,
+            assignment_level,
+            marks,
+            description,
+            due_date,
+            thumbnail,
+            status,
+            pdfLink,
+            notes,
+            giveMark,
+            feedback
+        };
+        console.log(submitData);
+    
+        // Call the function to handle the status update
+        handleStatus(_id, submitData);
+    };
+    
+    const handleStatus = async (_id, submitData) => {
+        try {
+            const { data } = await axios.patch(`http://localhost:8000/statusUpdate/${_id}`, submitData);
+            console.log(data);
+            setMarkForm(data);
         } catch (error) {
             console.error(error, "vul val");
         }
-    }
+    };
+    
 
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-            <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Mark Form</h2>
-
-            <form>
-                <h2 className="text-white">Examinee email: {markForm.my_email}</h2>
-                <h2 className="text-white">Examinee name: {markForm.status}</h2>
+        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-secondary">
+            <form onSubmit={(e) => handleGiveMark(e, markForm._id, markForm.prevStatus, 'Complete')}>
+                <h2 className=" font-bold text-3xl  rounded-md text-primary">Give Mark Form</h2>
+                <h2 className="text-lg mt-3 font-semibold capitalize ">Author: {markForm?.email}</h2>
 
                 <div className="grid grid-cols-1 gap-6 mt-4 ">
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" for="username">PDF/doc link</label>
-                        <input id="username" name="pdfLink" defaultValue={markForm.pdfLink} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label className="font-bold" >PDF/doc link</label>
+                        <input id="username" name="pdfLink" defaultValue={markForm.pdfLink} type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" for="emailAddress">Quick Notes</label>
-                        <textarea id="emailAddress" defaultValue={markForm.notes} name="notes" type="email" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
+                        <label className="font-bold" >Quick Notes</label>
+                        <textarea id="emailAddress" defaultValue={markForm.notes} name="notes" type="email" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
                     </div>
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" for="emailAddress">Give mark</label>
-                        <input name="giveMark" type="number" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
+                        <label className="font-bold" >Give mark</label>
+                        <input name="giveMark" type="number" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
                     </div>
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" for="emailAddress">Feedback</label>
-                        <textarea name="feedback" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
+                        <label className="font-bold" >Feedback</label>
+                        <textarea name="feedback" type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
                     </div>
 
 
@@ -103,13 +148,12 @@ const GiveMark = () => {
                 </div>
 
                 <div className="flex justify-end mt-6">
-                    <button onClick={() =>
-                        handleStatus(markForm._id, markForm.status, 'Complete')
-                    } className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Submit</button>
+                    <button type="submit" className="w-full px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-primary rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Give mark</button>
                 </div>
             </form>
         </section>
     );
+    
 };
 
 export default GiveMark;

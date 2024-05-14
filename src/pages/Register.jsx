@@ -43,8 +43,8 @@ const Register = () => {
                 console.log(result.user);
                 if (result.user) {
                     toast.success("Register successfully!")
-                    logout()
-                    navigate("/signIn")
+                    // logout()
+                    navigate("/login")
                 }
 
             })

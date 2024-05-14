@@ -144,7 +144,7 @@ const Login = () => {
 
                     <div className="px-8 flex justify-between ">
                         <p>Already Have Account?</p>
-                        <Link to="/signUp" className="text-blue-700 underline">Register Now</Link>
+                        <Link to="/register" className="text-blue-700 underline">Register Now</Link>
                     </div>
 
 

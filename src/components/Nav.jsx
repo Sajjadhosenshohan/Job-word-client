@@ -45,14 +45,19 @@ const Nav = () => {
         </li>
 
         {
-            user && <li><NavLink to="/createAssignments" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class3' : 'font-bold my-anchor-element-class3'}>
+            <li><NavLink to="/createAssignments" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class3' : 'font-bold my-anchor-element-class3'}>
                 Create Assignments
             </NavLink></li>
         }
 
         {
-            user && <li><NavLink to="/pendingAssignments" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class4' : 'font-bold my-anchor-element-class4'}>
+            <li><NavLink to="/pendingAssignments" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class4' : 'font-bold my-anchor-element-class4'}>
                 Pending Assignments
+            </NavLink></li>
+        }
+        {
+            <li><NavLink to="/myAttempted" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class4' : 'font-bold my-anchor-element-class4'}>
+                my attempted
             </NavLink></li>
         }
 
