@@ -1,6 +1,6 @@
 
 // import { useContext, useState } from "react";
-import { useContext, useEffect, useState } from "react";
+import { useContext,  useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate, } from "react-router-dom";
@@ -11,7 +11,7 @@ import { AuthContext } from "../firebase/AuthProvider";
 
 const Login = () => {
     const [showPass, setShowPass] = useState(false);
-    const [registrationSuccess, SetRegistrationSuccess] = useState(false);
+    // const [registrationSuccess, SetRegistrationSuccess] = useState(false);
     const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
 
@@ -51,7 +51,7 @@ const Login = () => {
             })
             .catch(error => {
                 toast.error(`Login error! ${error.message}`)
-            })
+        })
     }
 
 
@@ -73,13 +73,13 @@ const Login = () => {
 
     }
 
-    useEffect(() => {
-        if (registrationSuccess) {
-            setTimeout(() => {
-                navigate("/login");
-            }, 1000);
-        }
-    }, [registrationSuccess, navigate]);
+    // useEffect(() => {
+    //     if (registrationSuccess) {
+    //         setTimeout(() => {
+    //             navigate("/login");
+    //         }, 1000);
+    //     }
+    // }, [registrationSuccess, navigate]);
 
     return (
         <div className="min-h-[50%] flex justify-center  mb-5 bg-cover bg-center rounded-lg" style={{ backgroundImage: `url('https://i.ibb.co/B2h734n/login.jpg')` }}>

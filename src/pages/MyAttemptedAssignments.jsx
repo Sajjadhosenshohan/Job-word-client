@@ -6,6 +6,7 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { MdFeedback } from 'react-icons/md';
 import { IoBookmarks } from 'react-icons/io5';
 import { GrStatusGoodSmall } from 'react-icons/gr';
+import toast from 'react-hot-toast';
 const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
 const MyAttemptedAssignments = () => {
@@ -15,19 +16,20 @@ const MyAttemptedAssignments = () => {
 
   console.log("my assignment page", loads)
 
-  
+
+
 
   useEffect(() => {
 
     const mySubmission = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8000/myAssignment/${user?.email}`);
+        const { data } = await axios.get(`http://localhost:5000/myAssignment/${user?.email}`, { withCredentials: true });
 
         console.log(23, data);
         setLoad(data)
 
       } catch (error) {
-        console.error(error, "vul val");
+        toast.error(error.message);
       }
     };
 
@@ -35,22 +37,15 @@ const MyAttemptedAssignments = () => {
   }, [user]);
 
 
+  const [pdf, setPdf] = useState(null);
 
-  // const { email,
-  //   _id,
-  //   assignment_title,
-  //   assignment_level,
-  //   marks,
-  //   description,
-  //   due_date,
-  //   thumbnail } = loads
+  const handlePdf = async (_id) => {
+    const fil = loads.find(f => f._id === _id);
+    setPdf(fil.pdfLink);
+    await document.getElementById('my_modal_5').showModal();
+  };
 
-  // const handleView = () => {
-  //   console.log('paice')
-  // }
-  const handlePdf = (_id) =>{
-    console.log(_id)
-  }
+
   return (
     // <div className=" relative  rounded overflow-hidden shadow-lg m-4 p-6  dark:bg-[#f4f3f0] dark:text-gray-800">
     //   <h2 className='text-center text-3xl my-7'>My Attempted Assignments</h2>
@@ -185,54 +180,35 @@ obtained marks, and feedback(if you got the marks) */}
                 <div className="flex gap-2 items-center  justify-start mb-2">
                   <MdFeedback className=" text-primary w-6 h-6" />
                   <p className="font-bold">
-                    PDF: <span className=" text-primary">{load?.pdfLink}</span>
+                    {/* PDF: <span className=" text-primary">{load?.pdfLink?.substring(0, 20)}....</span> */}
                   </p>
                 </div>
               </div>
 
-              <div onClick={()=>handlePdf(load?._id)} className="flex justify-end mt-3 item-center">
-                {/* to={`/details/${load._id}`} */}
-
-                <button onClick={() => document.getElementById('my_modal_5').showModal()} className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">View PDF</button>
-
+              <div className="flex justify-end mt-3 item-center">
+                <button onClick={() => handlePdf(load._id)} className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">View PDF</button>
               </div>
 
+              <h1>{load?.pdfLink}</h1>
+
               {/* modal */}
-              {
-                load?.pdfLink ?  <dialog id="my_modal_5" className="mt-12 rounded-lg bg-secondary modal modal-bottom sm:modal-middle h-[500px] w-[70%] mx-auto">
-                <div className=" h-full w-full md:p-5">
-                  <iframe src={load?.pdfLink } id="preview"
-                    style={{ minHeight: '350px', width: '100%' }}
-                    title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
-
-
-                  <div className="modal-action flex justify-center">
-                    <form method="dialog" className='w-full'>
-                      {/* if there is a button in form, it will close the modal */}
-                      <button className="w-full font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Close</button>
-                    </form>
+              {/* Modal */}
+              {pdf && (
+                <dialog id="my_modal_5" className="mt-12 rounded-lg bg-secondary modal modal-bottom sm:modal-middle h-[500px] w-[70%] mx-auto">
+                  <div className="h-full w-full md:p-5">
+                    <iframe src={pdf} style={{ minHeight: '350px', width: '100%' }} title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
+                    <div className="modal-action flex justify-center">
+                      <form method="dialog" className="w-full">
+                        <button onClick={() => setPdf(null)} className="w-full font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Close</button>
+                      </form>
+                    </div>
                   </div>
-                </div>
-              </dialog>   :  <dialog id="my_modal_5" className="mt-12 rounded-lg bg-secondary modal modal-bottom sm:modal-middle h-[500px] w-[70%] mx-auto">
-                <div className=" h-full w-full md:p-5">
-                  <iframe src="https://drive.google.com/file/d/1QKe2KCS1PM27Ygw8jRulypCGrbmtJYwm/preview" id="preview"
-                    style={{ minHeight: '350px', width: '100%' }}
-                    title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
+                </dialog>
+              )}
 
 
-                  <div className="modal-action flex justify-center">
-                    <form method="dialog" className='w-full'>
-                      {/* if there is a button in form, it will close the modal */}
-                      <button className="w-full font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Close</button>
-                    </form>
-                  </div>
-                </div>
-              </dialog>
-              }
 
-              
 
-              
               {/* modal */}
             </div>
           </div>)

@@ -22,7 +22,7 @@ const PendingAssignments = () => {
     const mySubmission = async () => {
       try {
 
-        const { data } = await axios.get('http://localhost:8000/allPending/pending', {
+        const { data } = await axios.get('http://localhost:5000/allPending/pending',{
           params: {
             status: 'pending'
           }

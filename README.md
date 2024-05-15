@@ -1,8 +1,31 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# assignment_category_0001
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Jobword
+
+## Live Site
+-[https://tour-2b613.web.app/](https://tour-2b613.web.app/).
+
+
+
+## Features
+- User authentication (login, registration)
+- Create assignments
+- Filter assignments based on difficulty level
+- View submitted assignments
+- Grade pending assignments
+
+## Technologies Used
+- MongoDB
+- Express.js
+- React
+- Node.js
+- Firebase (for authentication)
+
+##  Npm Package Name list:
+- React Tooltip,
+- React Simple Typewriter,
+
+## License
+This project is licensed under the [License Name] License.

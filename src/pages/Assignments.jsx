@@ -18,27 +18,12 @@ const Assignments = () => {
     // const img4 = "https://i.ibb.co/Gpc3YVT/pexels-sudipta-1603650.jpg"
     const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
-    // loader
-    // const LoadInfo = useLoaderData();
-    // const [allTourSpot, setAllTourSpot] = useState(LoadInfo)
-
-    // // const { loading } = useContext(AuthContext)
-
-
-
-
-    // if (loading) {
-    //     return <div className="flex items-center justify-center my-[150px]">
-    //         <div className="md:w-28 md:h-28 w-12 h-12 border-4 border-dashed rounded-full animate-spin dark:border-violet-600"></div>
-    //     </div>
-
-    // }
 
     const [assignments, setAssignment] = useState()
     const [singleAssignment, setSingleAssignment] = useState();
 
     const getData = async () => {
-        const { data } = await axios('http://localhost:8000/allAssignment', { withCredentials: true })
+        const { data } = await axios('http://localhost:5000/allAssignment')
         console.log(data)
         setAssignment(data)
         setSingleAssignment(data)
@@ -96,7 +81,7 @@ const Assignments = () => {
                 if (result.isConfirmed) {
                     const deleteIt = async () => {
                         try {
-                            const { data } = await axios.delete(`http://localhost:8000/delete/${id}`)
+                            const { data } = await axios.delete(`http://localhost:5000/delete/${id}`)
                             console.log(data)
 
                             // show msg

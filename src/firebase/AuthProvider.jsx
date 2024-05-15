@@ -58,8 +58,9 @@ const AuthProvider = ({ children }) => {
 
     // observer
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+        onAuthStateChanged(auth, (currentUser) => {
             const loggedEmail = currentUser?.email || user?.email;
+            
             const loggedUser = { email: loggedEmail }
 
 
@@ -67,25 +68,27 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
             // token send to server
             if (currentUser) {
-                axios.post('http://localhost:8000/jwt', loggedUser, { withCredentials: true })
+
+                axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
 
                     .then(res => {
                         console.log("token response", res.data)
                     })
+
             }
             else {
-                axios.post('http://localhost:8000/jwt', loggedUser, { withCredentials: true })
+
+                axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
 
                     .then(res => {
                         console.log("logout response", res.data)
                     })
+
             }
         });
 
-        return () => {
-            unSubscribe()
-        }
-    }, [])
+
+    }, [user])
 
     const Info = { createUser, signIn, googleLogin, githubLogin, user, logout, loading }
     return (

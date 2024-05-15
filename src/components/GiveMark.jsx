@@ -16,7 +16,7 @@ const GiveMark = () => {
     useEffect(() => {
         const submitToServer = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:8000/markAssignment/${id}`);
+                const { data } = await axios.get(`http://localhost:5000/markAssignment/${id}`);
                 console.log(data);
                 setMarkForm(data)
 
@@ -73,7 +73,7 @@ const GiveMark = () => {
 
         
     //     try {
-    //         const { data } = await axios.patch(`http://localhost:8000/statusUpdate/${_id}`, );
+    //         const { data } = await axios.patch(`http://localhost:5000/statusUpdate/${_id}`, );
     //         console.log(data);
     //         setMarkForm(data)
 
@@ -115,7 +115,7 @@ const GiveMark = () => {
     
     const handleStatus = async (_id, submitData) => {
         try {
-            const { data } = await axios.patch(`http://localhost:8000/statusUpdate/${_id}`, submitData);
+            const { data } = await axios.patch(`http://localhost:5000/statusUpdate/${_id}`, submitData);
             console.log(data);
             // setMarkForm(data);
             if (data.modifiedCount
