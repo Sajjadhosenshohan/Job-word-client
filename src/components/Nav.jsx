@@ -65,25 +65,25 @@ const Nav = () => {
         <Tooltip
             anchorSelect=".my-anchor-element-classHome"
             content="Home"
-            style={{ backgroundColor: "#ff8a00", color: "white" }}
+            style={{ backgroundColor: "#1967d2", color: "white" }}
         />
         {/* All Tourists Spot */}
         <Tooltip
             anchorSelect=".my-anchor-element-class2"
             content="Assignments"
-            style={{ backgroundColor: "#ff8a00", color: "white" }}
+            style={{ backgroundColor: "#1967d2", color: "white" }}
         />
         {/* Add Tourists*/}
         <Tooltip
             anchorSelect=".my-anchor-element-class3"
             content="Create Assignments"
-            style={{ backgroundColor: "#ff8a00", color: "white" }}
+            style={{ backgroundColor: "#1967d2", color: "white" }}
         />
         {/* My List*/}
         <Tooltip
             anchorSelect=".my-anchor-element-class4"
             content="Pending Assignments"
-            style={{ backgroundColor: "#ff8a00", color: "white" }}
+            style={{ backgroundColor: "#1967d2", color: "white" }}
         />
 
 
@@ -104,11 +104,11 @@ const Nav = () => {
                     <Link to='/' className="justify-center flex items-center md:font-bold  ml-1 md:text-3xl ">
 
                         <div className="justify-center flex items-center">
-                            <img className="w-16 h-12" src={'https://i.ibb.co/KL3Pbx0/download.jpg'} alt="" />
+                            <img className="w-16 h-12 " src={'https://i.ibb.co/KL3Pbx0/download.jpg'} alt="" />
                         </div>
 
 
-                        <span className="mt-1  from-primary ">Jobword</span>
+                        <span className="mt-1 dark:text-black">Jobword</span>
 
 
                     </Link>

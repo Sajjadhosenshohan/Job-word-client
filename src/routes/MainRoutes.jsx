@@ -11,11 +11,14 @@ import DetailsAssignment from "../pages/DetailsAssignment";
 import SubmissionForm from "../pages/SubmissionForm";
 import MyAttemptedAssignments from "../pages/MyAttemptedAssignments";
 import GiveMark from "../components/GiveMark";
+import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayOut></MainLayOut>,
+        errorElement: <ErrorPage></ErrorPage>,
         children:[
             {
                 path: "/",
@@ -57,7 +60,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/createAssignments",
-                element: <CreateAssignments></CreateAssignments>
+                element: <PrivateRoute><CreateAssignments></CreateAssignments></PrivateRoute>
             },
             {
                 path: "/myAttempted",

@@ -75,12 +75,10 @@ const SubmissionForm = () => {
     return (
         <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-secondary">
 
-            <iframe src="https://drive.google.com/file/d/1QKe2KCS1PM27Ygw8jRulypCGrbmtJYwm/preview" id="preview"
-                style={{ minHeight: '300px', width: '100%' }}
-                title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
+            
 
             <h2 className=" font-bold text-3xl  rounded-md text-primary">Submission Form</h2>
-            <h2 className="text-lg mt-3 font-semibold capitalize ">Author: {email}</h2>
+            <h2 className="text-lg mt-3 font-semibold capitalize ">Examinee: <span className="text-primary">{email}</span></h2>
 
             <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-6 mt-4 ">

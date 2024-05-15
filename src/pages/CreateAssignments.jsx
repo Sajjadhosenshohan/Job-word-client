@@ -49,11 +49,12 @@ const CreateAssignments = () => {
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: "Your work has been saved",
+                    title: "Assignment created successfully",
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
+            form.reset()
         } catch (err) {
             console.log(err)
         }

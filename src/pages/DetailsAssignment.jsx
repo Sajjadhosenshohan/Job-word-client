@@ -111,7 +111,7 @@ const DetailsAssignment = () => {
                             <IoBookmark className=" text-primary w-6 h-6" />
 
                             <p className="font-bold">
-                                Author: <span className="font-base text-primary">{email}</span>
+                            Examinee: <span className="font-base text-primary">{email}</span>
                             </p>
                         </div>
 
@@ -119,7 +119,7 @@ const DetailsAssignment = () => {
                             <CiCalendarDate className=" text-primary w-6 h-6" />
 
                             <p className="font-bold">
-                                Due_date: <span className="font-base text-primary">{due_date}</span>
+                                Due_date: <span className="font-base text-primary">{new Date(due_date).toLocaleDateString()}</span>
                             </p>
                         </div>
                         <div className="flex gap-2 items-center  justify-start mb-2">
@@ -133,7 +133,7 @@ const DetailsAssignment = () => {
 
                     <div className="flex justify-start mt-3 item-center">
                         <Link to={`/submit/${_id}`}>
-                            <button className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Take assignment</button>
+                            <button  className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Take assignment</button>
                         </Link>
                     </div>
                 </div>

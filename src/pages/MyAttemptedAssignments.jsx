@@ -1,9 +1,11 @@
 
-import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../firebase/AuthProvider';
-import { CiCalendarDate, CiMail } from 'react-icons/ci';
+import { CiCalendarDate } from 'react-icons/ci';
+import { MdFeedback } from 'react-icons/md';
+import { IoBookmarks } from 'react-icons/io5';
+import { GrStatusGoodSmall } from 'react-icons/gr';
 const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
 const MyAttemptedAssignments = () => {
@@ -40,6 +42,10 @@ const MyAttemptedAssignments = () => {
   //   description,
   //   due_date,
   //   thumbnail } = loads
+
+  // const handleView = () => {
+  //   console.log('paice')
+  // }
   return (
     // <div className=" relative  rounded overflow-hidden shadow-lg m-4 p-6  dark:bg-[#f4f3f0] dark:text-gray-800">
     //   <h2 className='text-center text-3xl my-7'>My Attempted Assignments</h2>
@@ -115,14 +121,14 @@ const MyAttemptedAssignments = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-7">
-      {/* assignment title, assignment status, assignment marks, your
+        {/* assignment title, assignment status, assignment marks, your
 obtained marks, and feedback(if you got the marks) */}
 
 
         {
 
           loads?.map((load, index) => <div key={index} className="flex w-full bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800   transition-all    overflow-hidden  duration-500 transform   hover:bg-opacity-80  p-4">
-            <div className="w-1/3 rounded-lg" style={{ backgroundImage: `url(${load.thumbnail})` }}>
+            <div className="w-1/3 rounded-lg bg-cover bg-center" style={{ backgroundImage: `url(${load.thumbnail})` }}>
 
             </div>
 
@@ -141,32 +147,72 @@ obtained marks, and feedback(if you got the marks) */}
                   </p>
                 </div>
                 <div className="flex gap-2 items-center  justify-start mb-2">
-                  <CiMail className=" text-primary w-6 h-6" />
+                  <GrStatusGoodSmall className=" text-primary w-6 h-6" />
                   <p className="font-bold">
-                    Assignment status: <span className=" text-primary">{load?.status}</span>
+                    Assignment status: <span className={`text-white p-1 rounded-xl ${load?.status === 'pending' && 'bg-yellow-600'
+                      } 
+                    
+                      ${load?.status === 'Complete' && 'bg-green-600'
+                      } 
+                      
+                      `}>
+                      {
+                        load?.status
+                      }
+                    </span>
                   </p>
                 </div>
 
                 <div className="flex gap-2 items-center  justify-start mb-2">
-                  <CiMail className=" text-primary w-6 h-6" />
+                  <IoBookmarks className=" text-primary w-6 h-6" />
                   <p className="font-bold">
                     Obtained marks: <span className=" text-primary">{load?.giveMark}</span>
                   </p>
                 </div>
 
                 <div className="flex gap-2 items-center  justify-start mb-2">
-                  <CiMail className=" text-primary w-6 h-6" />
+                  <MdFeedback className=" text-primary w-6 h-6" />
                   <p className="font-bold">
                     Feedback: <span className=" text-primary">{load?.feedback}</span>
+                  </p>
+                </div>
+
+                <div className="flex gap-2 items-center  justify-start mb-2">
+                  <MdFeedback className=" text-primary w-6 h-6" />
+                  <p className="font-bold">
+                    PDF: <span className=" text-primary">{load?.pdfLink}</span>
                   </p>
                 </div>
               </div>
 
               <div className="flex justify-end mt-3 item-center">
-                <Link to={`/giveMark/${load._id}`}>
-                  <button className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">give mark</button>
-                </Link>
+                {/* to={`/details/${load._id}`} */}
+
+                <button onClick={() => document.getElementById('my_modal_5').showModal()} className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">View PDF</button>
+
               </div>
+
+              {/* modal */}
+
+              {/* Open the modal using document.getElementById('ID').showModal() method */}
+              {/* <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button> */}
+
+              <dialog id="my_modal_5" className="border-2 border-green modal modal-bottom sm:modal-middle h-[600px] w-[70%] mx-auto">
+                <div className="modal-box h-full w-full">
+                  <iframe src="https://drive.google.com/file/d/1QKe2KCS1PM27Ygw8jRulypCGrbmtJYwm/preview" id="preview"
+                    style={{ minHeight: '300px', width: '100%' }}
+                    title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
+
+
+                  <div className="modal-action flex justify-center  border-2 border-red-500 ">
+                    <form method="dialog">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="btn w-full">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+              {/* modal */}
             </div>
           </div>)
         }

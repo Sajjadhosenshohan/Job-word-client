@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { Fade } from "react-awesome-reveal";
+// import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
 
 
@@ -15,7 +15,7 @@ const Assignments = () => {
 
     // const img1 = "https://drive.google.com/file/d/1QKe2KCS1PM27Ygw8jRulypCGrbmtJYwm/view?usp=sharing"
 
-    const img4 = "https://i.ibb.co/Gpc3YVT/pexels-sudipta-1603650.jpg"
+    // const img4 = "https://i.ibb.co/Gpc3YVT/pexels-sudipta-1603650.jpg"
     const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
     // loader
@@ -26,31 +26,6 @@ const Assignments = () => {
 
 
 
-    // const [tours, setTours] = useState(allTourSpot);
-
-    // const handleFilter = (filterType) => {
-
-
-    //     if (filterType === 'all') {
-
-    //         setTours(allTourSpot);
-
-    //     }
-    //     else if (filterType === 'ascending') {
-
-    //         const filteredWishList = [...tours].sort((a, b) => b.average_cost.substring(1) - a.average_cost.substring(1));
-    //         setTours(filteredWishList);
-
-    //     }
-    //     else if (filterType === 'descending') {
-
-
-    //         const filteredWishList = [...tours].sort((a, b) => a.average_cost.substring(1) - b.average_cost.substring(1));
-    //         setTours(filteredWishList);
-    //     }
-
-
-    // };
 
     // if (loading) {
     //     return <div className="flex items-center justify-center my-[150px]">
@@ -60,16 +35,51 @@ const Assignments = () => {
     // }
 
     const [assignments, setAssignment] = useState()
+    const [singleAssignment, setSingleAssignment] = useState();
 
     const getData = async () => {
         const { data } = await axios('http://localhost:8000/allAssignment', { withCredentials: true })
         console.log(data)
         setAssignment(data)
+        setSingleAssignment(data)
     }
 
     useEffect(() => {
         getData()
+
     }, [])
+
+
+
+
+
+
+    const handleFilter = (filterType) => {
+
+        if (filterType === 'All') {
+            setSingleAssignment(assignments);
+        }
+
+        else if (filterType === 'Easy') {
+            const filteredWishList = [...assignments].filter(t => t.assignment_level === "Easy")
+            setSingleAssignment(filteredWishList);
+
+        }
+        else if (filterType === 'Medium') {
+
+            const filteredWishList = [...assignments].filter(t => t.assignment_level === "Medium")
+            setSingleAssignment(filteredWishList);
+
+        }
+        else if (filterType === 'Hard') {
+
+
+            const filteredWishList = [...assignments].filter(t => t.assignment_level === "Hard");
+            setSingleAssignment(filteredWishList);
+        }
+
+
+    };
 
     const handleDelete = async (id, mail) => {
         if (user?.email === mail) {
@@ -133,27 +143,33 @@ const Assignments = () => {
             </div>
 
             {/* button  */}
-            <div className="mt-8 mb-10 flex  justify-center">
+            
+            <div className="mt-8 mb-10 flex  justify-start">
 
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn m-1 font-bold text-white  bg-[#23BE0A]">
-                        <h2>Sort Assignments:</h2>
+                        <h2>Filter Assignments:</h2>
                         <RiArrowDropDownLine />
                     </div>
 
 
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                        {/* <li onClick={() => handleFilter('all')}><a>all</a></li>
-                        <li onClick={() => handleFilter('ascending')}><a>Price High to Low</a></li>
-                        <li onClick={() => handleFilter('descending')}><a>Price Low to High</a></li> */}
-
+                    <ul
+                        tabIndex={0}
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                    
+                        <li onClick={() => handleFilter('All')}><a>All</a></li>
+                        <li onClick={() => handleFilter('Easy')}><a>Easy</a></li>
+                        <li onClick={() => handleFilter('Medium')}><a>Medium</a></li>
+                        <li onClick={() => handleFilter('Hard')}><a>Hard</a></li>
                     </ul>
+
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
                 {
-                    assignments?.map((assignment, index) => <SingleAssignment assignment={assignment}
+                    singleAssignment?.map((assignment, index) => <SingleAssignment assignment={assignment}
                         key={index}
                         handleDelete={handleDelete}
                     ></SingleAssignment>)
@@ -187,7 +203,7 @@ const Assignments = () => {
                 style={{ minHeight: '550px', width: '100%' }}
                 title="PDF Preview"
             ></iframe> */}
-            
+
 
         </div>
     );

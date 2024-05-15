@@ -63,7 +63,7 @@ const PendingAssignments = () => {
         {
 
           loads?.map((load, index) => <div key={index} className="flex w-full bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800   transition-all    overflow-hidden  duration-500 transform   hover:bg-opacity-80  p-4">
-            <div className="w-1/3 rounded-lg" style={{ backgroundImage: `url(${load.thumbnail})` }}>
+            <div className="w-1/3 rounded-lg bg-cover bg-center" style={{ backgroundImage: `url(${load.thumbnail})` }}>
 
             </div>
 

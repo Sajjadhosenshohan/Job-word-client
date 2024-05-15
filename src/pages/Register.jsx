@@ -56,17 +56,17 @@ const Register = () => {
     }
 
     return (
-        <div className="min-h-[50%] flex justify-center mb-5 bg-cover bg-center " style={{ backgroundImage: `url('https://i.ibb.co/GdDCf18/pexels-freestockpro-2166553.jpg')` }}>
+        <div className="min-h-[50%] flex justify-center mb-5 bg-cover bg-center rounded-lg" style={{ backgroundImage: `url('https://i.ibb.co/0cBjSQk/register.webp')` }}>
 
             <Helmet>
                 <title>Jobword | Register</title>
             </Helmet>
 
 
-            <div className="hero-content flex-col ">
+            <div className="hero-content flex-col dark:text-black">
 
 
-                <div className="card shrink-0 w-full  max-w-md shadow-2xl   backdrop-blur-md bg-white/30">
+                <div className="card shrink-0 w-full  max-w-md shadow-2xl bg-secondary">
                     <Fade direction="left">
                         <h1 className="text-2xl lg:text-5xl font-bold text-center mb-4 mt-4 animate__animated animate__bounceInLeft animation-duration: 2s px-4">Resister Now!</h1>
                     </Fade>
@@ -76,7 +76,7 @@ const Register = () => {
                         {/* name */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Name</span>
+                                <span className="label-text dark:text-black">Name</span>
                             </label>
                             <input type="text" placeholder="name" className="input input-bordered"
                                 {...register("name", { required: true })}
@@ -88,7 +88,7 @@ const Register = () => {
                         {/* email */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text dark:text-black">Email</span>
                             </label>
                             <input type="text" placeholder="email" className="input input-bordered"
                                 {...register("email", { required: true })}
@@ -100,7 +100,7 @@ const Register = () => {
                         {/* photo */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="label-text dark:text-black">Photo URL</span>
                             </label>
                             <input type="text" placeholder="photo" className="input input-bordered"
                                 {...register("photo", { required: true })}
@@ -112,7 +112,7 @@ const Register = () => {
                         {/* password */}
                         <div className="form-control ">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text dark:text-black">Password</span>
                             </label>
                             <div className=" relative flex justify-center items-center">
                                 <input required type={showPass ? "text" : "password"}
@@ -135,10 +135,9 @@ const Register = () => {
 
                         </div>
 
-                        <div className="flex items-center justify-between mt-4">
-                            <a href="#" className="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forget Password?</a>
-
-                            <button type="submit" className="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        <div className="flex items-center  mt-4">
+                            
+                            <button type="submit"  className="w-full px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                             Register
                             </button>
                         </div>
