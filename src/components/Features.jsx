@@ -23,7 +23,7 @@ const Features = () => {
                 <div className="grid gap-6 my-16 lg:grid-cols-3 ">
 
                     {/* 1 */}
-                    <div className="flex items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
+                    <div className="flex items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105 justify-center">
 
                         <div className="text-center  p-8 space-y-3 rounded-md">
                             <div className="w-8 h-8 mx-auto text-xl font-bold rounded-full dark:bg-primary dark:text-gray-50 flex items-center justify-center"><BiSolidNavigation /></div>
@@ -35,7 +35,7 @@ const Features = () => {
                     </div>
 
                     {/* 2 */}
-                    <div className="flex items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
+                    <div className="flex justify-center items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
 
                         <div className="text-center  p-8 space-y-3 rounded-md">
                             <div className="w-8 h-8 mx-auto text-xl font-bold rounded-full dark:bg-primary dark:text-gray-50 flex items-center justify-center"><MdAssignmentTurnedIn /></div>
@@ -47,7 +47,7 @@ const Features = () => {
                     </div>
 
                     {/* 3*/}
-                    <div className="flex items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
+                    <div className="flex justify-center items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
 
                         <div className="text-center  p-8 space-y-3 rounded-md">
                             <div className="w-8 h-8 mx-auto text-xl font-bold rounded-full dark:bg-primary dark:text-gray-50 flex items-center justify-center"><FaFilter /></div>
@@ -58,7 +58,7 @@ const Features = () => {
                         </div>
                     </div>
                     {/* 4 */}
-                    <div className="flex items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
+                    <div className="flex justify-center items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
 
                         <div className="text-center  p-8 space-y-3 rounded-md">
                             <div className="w-8 h-8 mx-auto text-xl font-bold rounded-full dark:bg-primary dark:text-gray-50 flex items-center justify-center"><FaUser /></div>
@@ -69,7 +69,7 @@ const Features = () => {
                         </div>
                     </div>
                     {/* 5*/}
-                    <div className="flex items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
+                    <div className="flex justify-center  items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
 
                         <div className="text-center  p-8 space-y-3 rounded-md">
                             <div className="w-8 h-8 mx-auto text-xl font-bold rounded-full dark:bg-primary dark:text-gray-50 flex items-center justify-center"><MdGrading /></div>
@@ -80,7 +80,7 @@ const Features = () => {
                         </div>
                     </div>
                     {/* 6*/}
-                    <div className="flex items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
+                    <div className="flex justify-center items-center rounded overflow-hidden shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105">
 
                         <div className="text-center  p-8 space-y-3 rounded-md">
                             <div className="w-8 h-8 mx-auto text-xl font-bold rounded-full dark:bg-primary dark:text-gray-50 flex items-center justify-center"><RiSecurePaymentLine />

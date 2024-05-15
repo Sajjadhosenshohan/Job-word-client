@@ -15,6 +15,8 @@ const MyAttemptedAssignments = () => {
 
   console.log("my assignment page", loads)
 
+  
+
   useEffect(() => {
 
     const mySubmission = async () => {
@@ -46,6 +48,9 @@ const MyAttemptedAssignments = () => {
   // const handleView = () => {
   //   console.log('paice')
   // }
+  const handlePdf = (_id) =>{
+    console.log(_id)
+  }
   return (
     // <div className=" relative  rounded overflow-hidden shadow-lg m-4 p-6  dark:bg-[#f4f3f0] dark:text-gray-800">
     //   <h2 className='text-center text-3xl my-7'>My Attempted Assignments</h2>
@@ -117,7 +122,7 @@ const MyAttemptedAssignments = () => {
 
 
       <div className="w-full h-[300px] bg-cover bg-center flex justify-center items-center rounded-lg mb-12" style={{ backgroundImage: `url(${img1})` }}>
-        <h2 className=" font-bold text-4xl text-white bg-primary p-2 rounded-md mt-72">My Attempted Assignments</h2>
+        <h2 className=" font-bold text-xl lg:text-4xl text-white bg-primary p-2 rounded-md mt-72">My Attempted Assignments</h2>
       </div>
 
       <div className="grid grid-cols-1 gap-7">
@@ -127,12 +132,12 @@ obtained marks, and feedback(if you got the marks) */}
 
         {
 
-          loads?.map((load, index) => <div key={index} className="flex w-full bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800   transition-all    overflow-hidden  duration-500 transform   hover:bg-opacity-80  p-4">
-            <div className="w-1/3 rounded-lg bg-cover bg-center" style={{ backgroundImage: `url(${load.thumbnail})` }}>
+          loads?.map((load, index) => <div key={index} className="flex w-full bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800   transition-all gap-2 duration-500 transform   hover:bg-opacity-80  p-4">
+            <div className="w-1/2 md:w-1/3 h-[180px] my-auto  md:h-full md:my-0 rounded-lg bg-cover bg-center" style={{ backgroundImage: `url(${load.thumbnail})` }}>
 
             </div>
 
-            <div className="w-2/3 p-4 md:p-4">
+            <div className="w-1/2 md:w-2/3  md:p-4">
 
 
               <div className="space-y-3">
@@ -185,7 +190,7 @@ obtained marks, and feedback(if you got the marks) */}
                 </div>
               </div>
 
-              <div className="flex justify-end mt-3 item-center">
+              <div onClick={()=>handlePdf(load?._id)} className="flex justify-end mt-3 item-center">
                 {/* to={`/details/${load._id}`} */}
 
                 <button onClick={() => document.getElementById('my_modal_5').showModal()} className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">View PDF</button>
@@ -193,25 +198,41 @@ obtained marks, and feedback(if you got the marks) */}
               </div>
 
               {/* modal */}
-
-              {/* Open the modal using document.getElementById('ID').showModal() method */}
-              {/* <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button> */}
-
-              <dialog id="my_modal_5" className="border-2 border-green modal modal-bottom sm:modal-middle h-[600px] w-[70%] mx-auto">
-                <div className="modal-box h-full w-full">
-                  <iframe src="https://drive.google.com/file/d/1QKe2KCS1PM27Ygw8jRulypCGrbmtJYwm/preview" id="preview"
-                    style={{ minHeight: '300px', width: '100%' }}
+              {
+                load?.pdfLink ?  <dialog id="my_modal_5" className="mt-12 rounded-lg bg-secondary modal modal-bottom sm:modal-middle h-[500px] w-[70%] mx-auto">
+                <div className=" h-full w-full md:p-5">
+                  <iframe src={load?.pdfLink } id="preview"
+                    style={{ minHeight: '350px', width: '100%' }}
                     title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
 
 
-                  <div className="modal-action flex justify-center  border-2 border-red-500 ">
-                    <form method="dialog">
+                  <div className="modal-action flex justify-center">
+                    <form method="dialog" className='w-full'>
                       {/* if there is a button in form, it will close the modal */}
-                      <button className="btn w-full">Close</button>
+                      <button className="w-full font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>   :  <dialog id="my_modal_5" className="mt-12 rounded-lg bg-secondary modal modal-bottom sm:modal-middle h-[500px] w-[70%] mx-auto">
+                <div className=" h-full w-full md:p-5">
+                  <iframe src="https://drive.google.com/file/d/1QKe2KCS1PM27Ygw8jRulypCGrbmtJYwm/preview" id="preview"
+                    style={{ minHeight: '350px', width: '100%' }}
+                    title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
+
+
+                  <div className="modal-action flex justify-center">
+                    <form method="dialog" className='w-full'>
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="w-full font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Close</button>
                     </form>
                   </div>
                 </div>
               </dialog>
+              }
+
+              
+
+              
               {/* modal */}
             </div>
           </div>)

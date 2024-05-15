@@ -44,20 +44,20 @@ const Nav = () => {
             <NavLink to="/assignments" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class2' : 'font-bold my-anchor-element-class2'}> Assignments</NavLink>
         </li>
 
-        {
+        {user &&
             <li><NavLink to="/createAssignments" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class3' : 'font-bold my-anchor-element-class3'}>
                 Create Assignments
             </NavLink></li>
         }
 
-        {
+        {user &&
             <li><NavLink to="/pendingAssignments" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class4' : 'font-bold my-anchor-element-class4'}>
                 Pending Assignments
             </NavLink></li>
         }
-        {
+        {user &&
             <li><NavLink to="/myAttempted" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary  font-bold my-anchor-element-class4' : 'font-bold my-anchor-element-class4'}>
-                my attempted
+                My Submitted
             </NavLink></li>
         }
 
@@ -82,7 +82,7 @@ const Nav = () => {
         {/* My List*/}
         <Tooltip
             anchorSelect=".my-anchor-element-class4"
-            content="Pending Assignments"
+            content="My Submitted"
             style={{ backgroundColor: "#1967d2", color: "white" }}
         />
 
@@ -108,7 +108,7 @@ const Nav = () => {
                         </div>
 
 
-                        <span className="mt-1 dark:text-black">Jobword</span>
+                        <span className="mt-1 dark:text-primary">Jobword</span>
 
 
                     </Link>
@@ -168,11 +168,11 @@ const Nav = () => {
                                 {/* ul */}
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-4 flex gap-2 shadow bg-base-100 rounded-box w-52">
                                     <Link to={`/myAttempted`}>
-                                        <li>
-                                            My attempted assignments
+                                        <li className="border-2 p-2 border-primary text-primary rounded-md font-bold">
+                                            My submitted
                                         </li>
                                     </Link>
-                                    <li onClick={logout}><a>Logout</a></li>
+                                    <li className="rounded-md border-2 border-primary text-primary  font-bold" onClick={logout}><a>Logout</a></li>
                                 </ul>
 
 

@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
+import Swal from "sweetalert2";
 // import { useEffect } from "react";
 
 const SubmissionForm = () => {
@@ -61,6 +62,16 @@ const SubmissionForm = () => {
             try {
                 const { data } = await axios.post(`http://localhost:8000/mySubmission`, submitData);
                 console.log(data);
+
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Assignment submitted successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
 
             } catch (error) {
                 console.error(error, "vul val");

@@ -1,10 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import {  useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../firebase/AuthProvider";
 
 const GiveMark = () => {
     const { id } = useParams();
     const [markForm, setMarkForm] = useState({})
+    const navigate = useNavigate()
+
+    const {user} = useContext(AuthContext)
 
     console.log(markForm)
     useEffect(() => {
@@ -15,7 +21,7 @@ const GiveMark = () => {
                 setMarkForm(data)
 
             } catch (error) {
-                console.error(error, "vul val");
+                console.error(error.message);
             }
         };
 
@@ -111,9 +117,21 @@ const GiveMark = () => {
         try {
             const { data } = await axios.patch(`http://localhost:8000/statusUpdate/${_id}`, submitData);
             console.log(data);
-            setMarkForm(data);
+            // setMarkForm(data);
+            if (data.modifiedCount
+                > 0) {
+                Swal.fire({
+                    title: 'Successfully updated!',
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+            }
+
+            navigate("/assignments")
         } catch (error) {
-            console.error(error, "vul val");
+            toast.error(error.message)
+            // console.error(error, "vul val");
         }
     };
     
@@ -124,23 +142,25 @@ const GiveMark = () => {
                 <h2 className=" font-bold text-3xl  rounded-md text-primary">Give Mark Form</h2>
                 <h2 className="text-lg mt-3 font-semibold capitalize ">Author: {markForm?.email}</h2>
 
+                <h2 className="text-lg mt-4 font-semibold capitalize ">Examinee email: {user?.email}</h2>
+
                 <div className="grid grid-cols-1 gap-6 mt-4 ">
                     <div>
                         <label className="font-bold" >PDF/doc link</label>
-                        <input id="username" name="pdfLink" defaultValue={markForm.pdfLink} type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input id="username" disabled  name="pdfLink" defaultValue={markForm.pdfLink} type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
                         <label className="font-bold" >Quick Notes</label>
-                        <textarea id="emailAddress" defaultValue={markForm.notes} name="notes" type="email" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
+                        <textarea id="emailAddress" disabled defaultValue={markForm.notes} name="notes" type="email" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
                     </div>
                     <div>
                         <label className="font-bold" >Give mark</label>
-                        <input name="giveMark" type="number" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
+                        <input name="giveMark" required type="number" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
                     </div>
                     <div>
                         <label className="font-bold" >Feedback</label>
-                        <textarea name="feedback" type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
+                        <textarea name="feedback" required type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring " />
                     </div>
 
 

@@ -37,7 +37,7 @@ const DetailsAssignment = () => {
         <div className="mt-12 mb-24">
 
             <div className="w-full h-[300px] bg-cover bg-center flex justify-center items-center rounded-lg mb-12" style={{ backgroundImage: `url(${img1})` }}>
-                <h2 className=" font-bold text-4xl text-white bg-primary p-2 rounded-md mt-72">Details Assignment</h2>
+                <h2 className=" font-bold text-xl lg:text-4xl text-white bg-primary p-2 rounded-md mt-72">Details Assignment</h2>
             </div>
 
             {/* <div className=" flex flex-col md:flex-row gap-6">
@@ -93,7 +93,7 @@ const DetailsAssignment = () => {
                 </div>
             </div> */}
 
-            <div className="relative flex w-full bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800   transition-all    overflow-hidden  duration-500 transform   hover:bg-opacity-80  p-4">
+            <div className="relative flex flex-col lg:flex-row w-full bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800   transition-all    overflow-hidden  duration-500 transform   hover:bg-opacity-80  p-4">
                 <div className="w-1/3 rounded-lg bg-no-repeat bg-cover" style={{ backgroundImage: `url(${thumbnail})` }}>
 
                 </div>

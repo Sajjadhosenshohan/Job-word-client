@@ -25,14 +25,14 @@ const SingleAssignment = ({ assignment, handleDelete }) => {
 
 
                 <div className="flex gap-3 mt-4">
-                    <button onClick={() => handleDelete(_id, email)} className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg bg-red-600 hover:bg-red-700 dark:hover:bg-red-800 text-center">Delete</button>
+                    <button onClick={() => handleDelete(_id, email)} className="font-medium text-white text-base lg:text-xl lg:pb-2 lg:px-4 py-1 px-1 rounded-lg bg-red-600 hover:bg-red-700 dark:hover:bg-red-800 text-center">Delete</button>
 
                     <Link to={`/update/${_id}`}>
-                        <button className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg bg-green-500 hover:bg-green-600 dark:hover:bg-green-700 text-center">Update</button>
+                        <button className="font-medium text-white text-base lg:text-xl lg:pb-2 lg:px-4 py-1 px-1 rounded-lg bg-green-500 hover:bg-green-600 dark:hover:bg-green-700 text-center">Update</button>
                     </Link>
 
                     <Link to={`/details/${_id}`}>
-                        <button className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-700 text-center">View</button>
+                        <button className="font-medium text-white text-base lg:text-xl lg:pb-2 lg:px-4 py-1 px-1 rounded-lg bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-700 text-center">View</button>
                     </Link>
                 </div>
             </div>

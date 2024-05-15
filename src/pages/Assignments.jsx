@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 // import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
-
+import toast from "react-hot-toast";
 
 import { AuthContext } from "../firebase/AuthProvider";
 import SingleAssignment from "../components/SingleAssignment";
@@ -83,7 +83,7 @@ const Assignments = () => {
 
     const handleDelete = async (id, mail) => {
         if (user?.email === mail) {
-            console.log("milce vai")
+            // console.log("milce vai")
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -120,7 +120,8 @@ const Assignments = () => {
             });
         }
         else {
-            alert("fuck u")
+            
+            return toast.error(`You didn't created this Assignment`)
         }
 
     }

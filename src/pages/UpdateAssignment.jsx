@@ -77,8 +77,8 @@ const UpdateAssignment = () => {
     }
     return (
         <div>
-            <div className=" w-full h-[300px] bg-cover bg-center flex justify-center items-center rounded-lg mb-12" style={{ backgroundImage: `url(${img1})` }}>
-                <h2 className=" font-bold text-4xl text-white bg-primary p-2 rounded-md mt-72">Update Assignments</h2>
+            <div className=" w-full h-[300px] bg-cover bg-center flex flex-col md:flex-row justify-center items-center rounded-lg mb-12" style={{ backgroundImage: `url(${img1})` }}>
+                <h2 className=" font-bold text-xl lg:text-4xl text-white bg-primary p-2 rounded-md mt-72">Update Assignments</h2>
             </div>
 
 
@@ -263,8 +263,8 @@ const UpdateAssignment = () => {
                 </div>
             </div> */}
 
-            <div className="flex gap-6">
-                <div className="bg-white  w-1/3">
+            <div className="flex gap-6  flex-col md:flex-row">
+                <div className="bg-white w-full md:w-1/3 ">
                     <section >
                         <div className="container space-y-8 px-6 py-6 mx-auto">
                             <div>
@@ -289,7 +289,7 @@ const UpdateAssignment = () => {
                     </section>
                 </div>
 
-                <div className='  flex justify-center items-start min-h-[calc(100vh-306px)] w-2/3'>
+                <div className='flex justify-center items-start min-h-[calc(100vh-306px)] w-full md:w-2/3'>
                     <section className='mt-6 w-full border-primary border-2 p-2 md:p-6 mx-auto  rounded-md shadow-md bg-secondary'>
 
                         {/* <h1 className="text-2xl font-semibold text-primary md:text-3xl">Create Assignment:</h1> */}
@@ -340,7 +340,7 @@ const UpdateAssignment = () => {
 
                                     {/* Date Picker Input Field */}
                                     <DatePicker
-                                        className='border p-2 rounded-md'
+                                        className='border p-2 rounded-md w-full'
                                         selected={startDate}
                                         defaultValue={due_date}
                                         onChange={date => setStartDate(date)}
