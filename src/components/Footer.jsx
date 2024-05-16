@@ -7,12 +7,13 @@ const Footer = () => {
                 <div className="flex flex-col items-center text-center">
                     <Link to='/' className="justify-center flex items-center md:font-bold  ml-1 md:text-3xl ">
 
-                        <div className="justify-center flex items-center">
-                            {/* <img className="w-16 h-12 " src={'https://i.ibb.co/KL3Pbx0/download.jpg'} alt="" /> */}
+                    <div>
+                            <img className="w-16 h-16 " src={'https://i.ibb.co/kytcV01/360-F-505617309-NN1-CW7di-Nm-GXJf-Micp-Y9e-XHKV4sqz-O5-H-removebg-preview-1.png'} alt="" />
                         </div>
 
 
                         <span className="mt-1 dark:text-primary">Jobword</span>
+
 
 
                     </Link>

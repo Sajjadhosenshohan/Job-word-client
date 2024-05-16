@@ -54,11 +54,7 @@ const Nav = () => {
                 Pending Assignments
             </NavLink></li>
         }
-        {/* {user &&
-            <li><NavLink to="/myAttempted" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none  bg-secondary  font-bold my-anchor-element-class4' : 'font-bold my-anchor-element-class4'}>
-                My Submitted
-            </NavLink></li>
-        } */}
+        
 
         {/* Home */}
         <Tooltip
@@ -165,7 +161,7 @@ const Nav = () => {
                                 </div>
 
                                 {/* ul */}
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-4 flex gap-2 shadow bg-base-100 rounded-box w-52">
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-4 flex gap-2 shadow  rounded-box w-52 bg-secondary">
                                     <Link to={`/myAttempted`}>
                                         <li className="border-2 p-2 border-primary text-primary rounded-md font-bold">
                                             My submitted

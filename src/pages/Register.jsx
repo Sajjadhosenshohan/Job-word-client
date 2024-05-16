@@ -68,7 +68,7 @@ const Register = () => {
 
                 <div className="card shrink-0 w-full  max-w-md shadow-2xl bg-secondary">
                     <Fade direction="left">
-                        <h1 className="text-2xl lg:text-5xl font-bold text-center mb-4 mt-4 animate__animated animate__bounceInLeft animation-duration: 2s px-4">Resister Now!</h1>
+                        <h1 className="text-2xl lg:text-5xl font-bold text-center mb-4 mt-4 animate__animated animate__bounceInLeft animation-duration: 2s px-4 bg-secondary">Resister Now!</h1>
                     </Fade>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
