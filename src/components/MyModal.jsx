@@ -6,7 +6,7 @@ import { useState } from 'react';
 const MyModal = ({ load}) => {
     console.log(load)
 
-    const { thumbnail, assignment_title, marks, status, giveMark, feedback, _id,} = load
+    const { thumbnail, assignment_title, marks, status, giveMark, feedback, _id,pdfLink} = load
 
     const [pdf, setPdf] = useState("");
 
@@ -73,10 +73,10 @@ const MyModal = ({ load}) => {
                             </p>
                         </div>
 
-                        <div className="flex gap-2 items-center  justify-start mb-2">
+                        <div title={pdfLink} className="flex gap-2 items-center  justify-start mb-2">
                             <MdFeedback className=" text-primary w-6 h-6" />
                             <p className="font-bold">
-                                PDF: <span className=" text-primary">{pdf?.substring(0, 20)}....</span>
+                                PDF: <span  className=" text-primary">{pdfLink?.substring(0, 20)}....</span>
                             </p>
                         </div>
                     </div>
