@@ -36,52 +36,6 @@ const GiveMark = () => {
         due_date,
         thumbnail,
     } = markForm
-
-    // const handleGiveMark = (event,_id, prevStatus, status) => {
-    //     event.preventDefault()
-        
-    //     const form = event.target;
-    //     const pdfLink = form.pdfLink.value;
-    //     const notes = form.notes.value;
-    //     const giveMark = form.giveMark.value;
-    //     const feedback = form.feedback.value;
-
-    //     console.log(_id,prevStatus,status)
-
-        
-    //     const submitData = {
-    //         email,
-    //         assignment_title,
-    //         assignment_level,
-    //         marks,
-    //         description,
-    //         due_date,
-    //         thumbnail,
-            
-    //         status,
-    //         pdfLink,
-    //         notes
-
-    //     };
-    //     console.log(submitData)
-
-
-
-    // }
-    // // handleStatus
-    // const handleStatus = async () => {
-
-        
-    //     try {
-    //         const { data } = await axios.patch(`https://job-word-server.vercel.app/statusUpdate/${_id}`, );
-    //         console.log(data);
-    //         setMarkForm(data)
-
-    //     } catch (error) {
-    //         console.error(error, "vul val");
-    //     }
-    // }
-
     const handleGiveMark = (event, _id, prevStatus, status) => {
         event.preventDefault();
     

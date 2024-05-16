@@ -94,12 +94,6 @@ const Features = () => {
 
                 </div>
             </div>
-            {/* User-friendly Navigation: Easily explore assignments, create new ones, and manage your profile.
-            Assignment Management: Seamlessly create, update, and delete assignments with intuitive forms.
-            Filtered Assignment Viewing: Quickly find assignments based on difficulty level for efficient studying.
-            Personalized User Pages: Access a dedicated space to view your submitted assignments and pending tasks.
-            Efficient Grading System: Easily give marks and feedback on pending assignments for streamlined assessment.
-            Secure Authentication: Safely log in and register with robust validation and JWT token implementation. */}
         </section>
     );
 };
