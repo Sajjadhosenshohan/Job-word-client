@@ -104,10 +104,6 @@ const MyModal = ({ load }) => {
                     </dialog>}
 
 
-
-
-
-                    {/* modal */}
                 </div>
             </div>
 

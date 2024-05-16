@@ -35,28 +35,30 @@ const router = createBrowserRouter([
             {
                 path: "/assignments",
                 element: <Assignments></Assignments>,
-                loader: ()=> fetch('fackadd.json')
+                
             },
             {
                 path: "/update/:id",
-                element: <UpdateAssignment></UpdateAssignment>,
+                element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
                 loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
             },
             {
                 path: "/details/:id",
-                element: <DetailsAssignment></DetailsAssignment>,
+                element: <PrivateRoute><DetailsAssignment></DetailsAssignment></PrivateRoute>,
                 // loader: ()=> fetch('fackadd.json')
                 loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
             },
             {
                 path: "/submit/:id",
-                element: <SubmissionForm></SubmissionForm>,
+                element: <PrivateRoute><SubmissionForm></SubmissionForm></PrivateRoute>,
                 // loader: ()=> fetch('fackadd.json')
                 loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
             },
             {
                 path: "/pendingAssignments",
-                element: <PendingAssignments></PendingAssignments>
+                element: <PrivateRoute>
+                    <PendingAssignments></PendingAssignments>
+                </PrivateRoute>
             },
             {
                 path: "/createAssignments",
@@ -64,11 +66,13 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myAttempted",
-                element: <MyAttemptedAssignments></MyAttemptedAssignments>,
+                element: <PrivateRoute><MyAttemptedAssignments></MyAttemptedAssignments></PrivateRoute>,
             },
             {
                 path: "/giveMark/:id",
-                element: <GiveMark></GiveMark>,
+                element: <PrivateRoute>
+                    <GiveMark></GiveMark>
+                </PrivateRoute>,
             }
            
         ]

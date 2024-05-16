@@ -12,11 +12,11 @@ import Swal from "sweetalert2";
 
 const Assignments = () => {
     const { user } = useContext(AuthContext)
+    const [assignments, setAssignment] = useState()
+    const [singleAssignment, setSingleAssignment] = useState();
     const img1 = "https://i.ibb.co/Krpq83Y/pexels-otavio-4665064.jpg"
 
 
-    const [assignments, setAssignment] = useState()
-    const [singleAssignment, setSingleAssignment] = useState();
 
     const getData = async () => {
         const { data } = await axios('https://job-word-server.vercel.app/allAssignment')
