@@ -28,4 +28,4 @@
 - React Simple Typewriter,
 
 ## License
-This project is licensed under the [License Name] License.
+This project is licensed under the License.

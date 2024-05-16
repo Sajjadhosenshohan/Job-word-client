@@ -18,7 +18,6 @@ const MyAttemptedAssignments = () => {
     navigate('/')
   }
 
-
   useEffect(() => {
 
     const mySubmission = async () => {
