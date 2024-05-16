@@ -92,6 +92,10 @@ const GiveMark = () => {
         const feedback = form.feedback.value;
     
         console.log(_id, prevStatus, status);
+
+        const mark = parseFloat(giveMark)
+        if (mark > 60 || mark <= 0)
+        return toast.error('The mark must be greater than 60 or equal to 0.')
     
         const submitData = {
             email, 
@@ -137,7 +141,7 @@ const GiveMark = () => {
     
 
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-secondary">
+        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-secondary text-black">
             <form onSubmit={(e) => handleGiveMark(e, markForm._id, markForm.prevStatus, 'Complete')}>
                 <h2 className=" font-bold text-3xl  rounded-md text-primary">Give Mark Form</h2>
                 <h2 className="text-lg mt-3 font-semibold capitalize ">Author: {markForm?.email}</h2>

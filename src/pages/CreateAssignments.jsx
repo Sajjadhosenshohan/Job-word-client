@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { IoMdMail } from "react-icons/io";
+import toast from "react-hot-toast"
 const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
 // title, description, marks, thumbnail Image URL,
@@ -21,6 +22,7 @@ const CreateAssignments = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault()
         console.log("submit")
+
         const form = e.target;
         const email = user?.email;
         const assignment_title = form.assignment_title.value;
@@ -30,10 +32,10 @@ const CreateAssignments = () => {
         const due_date = startDate;
         const thumbnail = form.thumbnail.value;
 
-        // if (assignment_title || marks || assignment_level || description || due_date  ||) {
-        //     return setError('This field is empty')
-        // }
-
+        const mark = parseFloat(marks)
+        if (mark > 60 || mark <= 0)
+        return toast.error('The mark must be greater than 60 or equal to 0.')
+        
 
         const createData = {
             email,

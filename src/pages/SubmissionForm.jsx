@@ -1,6 +1,6 @@
 // import { useContext } from "react";
 // import { AuthContext } from "../firebase/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
@@ -11,7 +11,7 @@ const SubmissionForm = () => {
     const { user } = useContext(AuthContext);
     const load = useLoaderData(); // Call useLoaderData inside the functional component
     // console.log("load", load)
-
+    const navigate = useNavigate()
     const {
         assignment_title,
         assignment_level,
@@ -73,6 +73,8 @@ const SubmissionForm = () => {
                     });
                 }
 
+                navigate("/myAttempted")
+
             } catch (error) {
                 console.error(error, "vul val");
             }
@@ -89,13 +91,13 @@ const SubmissionForm = () => {
             
 
             <h2 className=" font-bold text-3xl  rounded-md text-primary">Submission Form</h2>
-            <h2 className="text-lg mt-3 font-semibold capitalize ">Examinee: <span className="text-primary">{email}</span></h2>
+            <h2 className="text-lg mt-3 font-semibold capitalize text-black">Examinee: <span className="text-primary">{email}</span></h2>
 
             <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 gap-6 mt-4 ">
+                <div className="grid grid-cols-1 gap-6 mt-4 text-black">
                     <div>
-                        <label className="font bold" >PDF/doc link</label>
-                        <input id="username" required name="pdfLink" type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label className="font bold " >PDF/doc link</label>
+                        <input id="username" required name="pdfLink" type="url" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>

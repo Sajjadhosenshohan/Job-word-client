@@ -22,10 +22,7 @@ const PendingAssignments = () => {
     const mySubmission = async () => {
       try {
 
-        const { data } = await axios.get('http://localhost:5000/allPending/pending',{
-          params: {
-            status: 'pending'
-          }
+        const { data } = await axios.get('http://localhost:5000/allPending/pending',{withCredentials: true},{params: {status: 'pending'}
         })
 
         console.log(`data of my submission ${data}`);
@@ -62,12 +59,12 @@ const PendingAssignments = () => {
 
         {
 
-          loads?.map((load, index) => <div key={index} className="flex w-full bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800   transition-all gap-2 duration-500 transform   hover:bg-opacity-80  p-4">
-            <div className="w-1/2 md:w-1/3 h-[180px] my-auto  md:h-full md:my-0 rounded-lg bg-cover bg-center" style={{ backgroundImage: `url(${load.thumbnail})` }}>
+          loads?.map((load, index) => <div key={index} className="flex  bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800 flex-col md:flex-row  transition-all gap-2 duration-500 transform   hover:bg-opacity-80  p-4">
+            <div className="w-full md:w-1/2 my-auto h-[250px] rounded-lg bg-cover bg-center" style={{ backgroundImage: `url(${load.thumbnail || "https://i.ibb.co/cT2D9h7/images.png"})` }}>
 
             </div>
 
-            <div className="w-1/2 md:w-2/3  md:p-4">
+            <div className="w-full md:w-1/2  md:p-4">
 
 
               <div className="space-y-3">

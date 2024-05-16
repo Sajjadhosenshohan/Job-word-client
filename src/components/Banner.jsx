@@ -73,7 +73,7 @@ const Banner = () => {
                                     skills while contributing to the development of innovative web applications.</p>
 
                                 <div>
-                                    <NavLink to="/signIn" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Get Started`}</button></NavLink>
+                                    <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
                                 </div>
 
                             </div>
@@ -114,7 +114,7 @@ const Banner = () => {
                                 <p>This role offers an excellent chance for growth, where you'll be able to enhance your
                                     skills while contributing to the development of innovative web applications.</p>
                                 <div>
-                                    <NavLink to="/signIn" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Get Started`}</button></NavLink>
+                                    <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@ const Banner = () => {
                                 <p>This role offers an excellent chance for growth, where you'll be able to enhance your
                                     skills while contributing to the development of innovative web applications.</p>
                                 <div>
-                                    <NavLink to="/signIn" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Get Started`}</button></NavLink>
+                                    <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +194,7 @@ const Banner = () => {
                                 <p>This role offers an excellent chance for growth, where you'll be able to enhance your
                                     skills while contributing to the development of innovative web applications.</p>
                                 <div>
-                                    <NavLink to="/signIn" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Get Started`}</button></NavLink>
+                                    <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
                                 </div>
                             </div>
                         </div>
