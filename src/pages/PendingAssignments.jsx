@@ -1,7 +1,4 @@
-
-// import { Link } from 'react-router-dom'
-// import { FaGlobe } from "react-icons/fa";
-// import { FaCity, FaLocationDot } from "react-icons/fa6";
+import { GrStatusGoodSmall } from "react-icons/gr";
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../firebase/AuthProvider';
@@ -22,7 +19,8 @@ const PendingAssignments = () => {
     const mySubmission = async () => {
       try {
 
-        const { data } = await axios.get('http://localhost:5000/allPending/pending',{withCredentials: true},{params: {status: 'pending'}
+        const { data } = await axios.get('http://localhost:5000/allPending/pending', { withCredentials: true }, {
+          params: { status: 'pending' }
         })
 
         console.log(`data of my submission ${data}`);
@@ -69,7 +67,7 @@ const PendingAssignments = () => {
 
               <div className="space-y-3">
                 <h1 className="text-xl font-bold">{load?.assignment_title}</h1>
-                
+
 
                 <div className="flex gap-2 items-center  justify-start mb-2">
                   <CiCalendarDate className=" text-primary w-6 h-6" />
@@ -84,6 +82,23 @@ const PendingAssignments = () => {
                     Examinee name: <span className=" text-primary">{load?.name}</span>
                   </p>
                 </div>
+              </div>
+
+              <div className="flex mt-2 gap-2 items-center  justify-start mb-2">
+                <GrStatusGoodSmall className=" text-primary w-6 h-6" />
+                <p className="font-bold">
+                  Assignment status: <span className={`text-white p-1 rounded-xl ${load?.status === 'pending' && 'bg-orange-600'
+                    } 
+                    
+                      ${load?.status === 'Complete' && 'bg-green-600'
+                    } 
+                      
+                      `}>
+                    {
+                      load?.status
+                    }
+                  </span>
+                </p>
               </div>
 
               <div className="flex justify-end mt-3 item-center">

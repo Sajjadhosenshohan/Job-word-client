@@ -3,22 +3,22 @@ import { MdFeedback } from 'react-icons/md';
 import { IoBookmarks } from 'react-icons/io5';
 import { GrStatusGoodSmall } from 'react-icons/gr';
 import { useState } from 'react';
-const MyModal = ({ load}) => {
+const MyModal = ({ load }) => {
     console.log(load)
 
-    const { thumbnail, assignment_title, marks, status, giveMark, feedback, _id,pdfLink} = load
+    const { thumbnail, assignment_title, marks, status, giveMark, feedback, _id, pdfLink } = load
 
     const [pdf, setPdf] = useState("");
 
     const handlePdf = () => {
-        const fil = load; 
+        const fil = load;
         setPdf(fil.pdfLink);
         console.log(fil);
 
-        
+
         setTimeout(() => {
             document.getElementById('my_modal_5').showModal();
-        }, 1000); 
+        }, 1000);
     };
 
     return (
@@ -42,10 +42,10 @@ const MyModal = ({ load}) => {
                                 Assignment marks: <span className="font-base text-primary">{marks}</span>
                             </p>
                         </div>
-                        <div className="flex gap-2 items-center  justify-start mb-2">
+                        <div className="flex mt-2 gap-2 items-center  justify-start mb-2">
                             <GrStatusGoodSmall className=" text-primary w-6 h-6" />
                             <p className="font-bold">
-                                Assignment status: <span className={`text-white p-1 rounded-xl ${status === 'pending' && 'bg-yellow-600'
+                                Assignment status: <span className={`text-white p-1 rounded-xl ${status === 'pending' && 'bg-orange-600'
                                     } 
                     
                       ${status === 'Complete' && 'bg-green-600'
@@ -76,23 +76,25 @@ const MyModal = ({ load}) => {
                         <div title={pdfLink} className="flex gap-2 items-center  justify-start mb-2">
                             <MdFeedback className=" text-primary w-6 h-6" />
                             <p className="font-bold">
-                                PDF: <span  className=" text-primary">{pdfLink?.substring(0, 20)}....</span>
+                                PDF: <span className=" text-primary">{pdfLink?.substring(0, 20)}....</span>
                             </p>
                         </div>
                     </div>
 
                     <div className="flex justify-end mt-3 item-center">
-                        
+
                         <button onClick={() => handlePdf(_id)} className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">View PDF</button>
                     </div>
-                    
+
 
                     {/* modal */}
                     {/* Modal */}
 
                     {pdf && <dialog id="my_modal_5" className="mt-12 rounded-lg bg-secondary modal modal-bottom sm:modal-middle h-[500px] w-[70%] mx-auto">
+                        <h1 className="text-2xl dark:text-primary lg:text-3xl font-bold text-center  ">PDF Preview!</h1>
                         <div className="h-full w-full md:p-5">
-                            <iframe src={pdf} style={{ minHeight: '350px', width: '100%' }} title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
+
+                            <iframe src={pdf} style={{ minHeight: '300px', width: '100%' }} title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
                             <div className="modal-action flex justify-center">
                                 <form method="dialog" className="w-full">
                                     <button className="w-full font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Close</button>

@@ -93,6 +93,10 @@ const GiveMark = () => {
     
         console.log(_id, prevStatus, status);
 
+        if(email === user?.email){
+            return toast.error('You submitted this assignment so you cannot give mark')
+        }
+
         const mark = parseFloat(giveMark)
         if (mark > 60 || mark <= 0)
         return toast.error('The mark must be greater than 60 or equal to 0.')
@@ -125,7 +129,7 @@ const GiveMark = () => {
             if (data.modifiedCount
                 > 0) {
                 Swal.fire({
-                    title: 'Successfully updated!',
+                    title: 'You give marked!',
                     text: 'Do you want to continue',
                     icon: 'success',
                     confirmButtonText: 'Cool'
@@ -144,7 +148,7 @@ const GiveMark = () => {
         <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-secondary text-black">
             <form onSubmit={(e) => handleGiveMark(e, markForm._id, markForm.prevStatus, 'Complete')}>
                 <h2 className=" font-bold text-3xl  rounded-md text-primary">Give Mark Form</h2>
-                <h2 className="text-lg mt-3 font-semibold capitalize ">Author: {markForm?.email}</h2>
+                
 
                 <h2 className="text-lg mt-4 font-semibold capitalize ">Examinee email: {user?.email}</h2>
 
