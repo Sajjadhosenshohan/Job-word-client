@@ -1,16 +1,14 @@
-// import { useContext } from "react";
-// import { AuthContext } from "../firebase/AuthProvider";
+
 import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
 import Swal from "sweetalert2";
-// import { useEffect } from "react";
+
 
 const SubmissionForm = () => {
     const { user } = useContext(AuthContext);
-    const load = useLoaderData(); // Call useLoaderData inside the functional component
-    // console.log("load", load)
+    const load = useLoaderData(); 
     const navigate = useNavigate()
     const {
         assignment_title,
@@ -25,11 +23,7 @@ const SubmissionForm = () => {
     const status = 'pending'
     const email = user?.email;
     const name = user?.displayName;
-    // who created email
-    // const email = load?.email;
 
-    // examinner
-    // const examiner_email = user?.email;
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -46,11 +40,6 @@ const SubmissionForm = () => {
             description,
             due_date,
             thumbnail,
-            // examiner_email,
-            // examiner: {
-            //     examiner_email : user?.email,
-            //     examiner_name : user?.displayName,
-            // },
             status,
             pdfLink,
             notes
@@ -119,6 +108,3 @@ const SubmissionForm = () => {
 
 export default SubmissionForm;
 
-// By default, every submitted assignment will be in pending status. Save
-// the user email with the submitted assignment so that it can be determined
-// who has submitted it.

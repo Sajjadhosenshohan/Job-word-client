@@ -71,7 +71,7 @@ const GiveMark = () => {
         };
         console.log(submitData);
     
-        // Call the function to handle the status update
+        
         handleStatus(_id, submitData);
     };
     
@@ -93,7 +93,7 @@ const GiveMark = () => {
             navigate("/assignments")
         } catch (error) {
             toast.error(error.message)
-            // console.error(error, "vul val");
+            
         }
     };
     

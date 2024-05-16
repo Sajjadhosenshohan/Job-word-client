@@ -35,16 +35,6 @@ const PendingAssignments = () => {
   }, [user]);
 
 
-
-
-  // const { email,
-  //   _id,
-  //   assignment_title,
-  //   assignment_level,
-  //   marks,
-  //   description,
-  //   due_date,
-  //   thumbnail } = loads
   return (
     <div className="mt-12 mb-24">
 

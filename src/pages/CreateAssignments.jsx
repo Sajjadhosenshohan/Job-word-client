@@ -98,7 +98,7 @@ const CreateAssignments = () => {
                 <div className='  flex justify-center items-start min-h-[calc(100vh-306px)] w-full md:w-2/3'>
                     <section className='mt-6 w-full border-primary border-2 p-2 md:p-6 mx-auto  rounded-md shadow-md bg-secondary'>
 
-                        {/* <h1 className="text-2xl font-semibold text-primary md:text-3xl">Create Assignment:</h1> */}
+                        
 
                         <form onSubmit={handleFormSubmit}>
                             <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>
@@ -145,7 +145,7 @@ const CreateAssignments = () => {
                                 <div className='flex flex-col gap-2 w-full'>
                                     <label className='text-gray-700'>Due date</label>
 
-                                    {/* Date Picker Input Field */}
+                                  
                                     <DatePicker
                                         className='border p-2 rounded-md w-full'
                                         selected={startDate}
