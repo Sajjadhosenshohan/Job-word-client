@@ -3,7 +3,7 @@ import { MdOutlineSubtitles } from "react-icons/md";
 import { IoBookmarkSharp } from "react-icons/io5";
 const SingleAssignment = ({ assignment, handleDelete }) => {
     const { thumbnail, assignment_level, marks, assignment_title, _id, email } = assignment
-    console.log(assignment)
+    
     return (
         <div className="w-full max-w-sm   shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105 rounded-lg  overflow-hidden  duration-500 transform   hover:bg-opacity-80 ">
             <img className="object-cover object-center w-full h-56" src={thumbnail} alt="avatar" />

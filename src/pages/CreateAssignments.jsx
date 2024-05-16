@@ -9,15 +9,10 @@ import { IoMdMail } from "react-icons/io";
 import toast from "react-hot-toast"
 const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
-// title, description, marks, thumbnail Image URL,
-// assignment difficulty level(easy, medium, hard) [YOU MUST USE
-// DROPDOWN/ SELECT INPUT FIELD], and due date [use this package
-// for selecting date “https://www.npmjs.com/package/react-datepicker”]
 
 const CreateAssignments = () => {
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
-    // const [error, setError] = useState('');
 
     const handleFormSubmit = async (e) => {
         e.preventDefault()
