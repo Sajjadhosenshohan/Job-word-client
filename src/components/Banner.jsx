@@ -8,10 +8,6 @@ import { Typewriter } from 'react-simple-typewriter'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { NavLink } from 'react-router-dom';
 
-// https://i.ibb.co/3hTwDQ8/pexels-designecologist-1779487.jpg
-// https://i.ibb.co/th3xJts/pexels-pixabay-267507.jpg
-// https://i.ibb.co/KVfDHQw/pexels-divinetechygirl-1181271.jpg
-// https://i.ibb.co/qYnKB3y/pexels-thisisengineering-3861972.jpg
 
 const img1 = "https://i.ibb.co/3hTwDQ8/pexels-designecologist-1779487.jpg"
 const img2 = "https://i.ibb.co/th3xJts/pexels-pixabay-267507.jpg"
@@ -69,7 +65,7 @@ const Banner = () => {
                                 </h1>
 
 
-                                <p>This role offers an excellent chance for growth, where you'll be able to enhance your
+                                <p>This role offers an excellent chance for growth, where you will  be able to enhance your
                                     skills while contributing to the development of innovative web applications.</p>
 
                                 <div>
@@ -111,7 +107,7 @@ const Banner = () => {
                                 </h1>
 
 
-                                <p>This role offers an excellent chance for growth, where you'll be able to enhance your
+                                <p>This role offers an excellent chance for growth, where you will be able to enhance your
                                     skills while contributing to the development of innovative web applications.</p>
                                 <div>
                                     <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
@@ -151,8 +147,8 @@ const Banner = () => {
                                 </h1>
 
 
-                                <p>This role offers an excellent chance for growth, where you'll be able to enhance your
-                                    skills while contributing to the development of innovative web applications.</p>
+                                <p>This role offers an excellent chance for growth, where you will be able to enhance your
+                                    skills while contributing the development of innovative web applications.</p>
                                 <div>
                                     <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
                                 </div>
