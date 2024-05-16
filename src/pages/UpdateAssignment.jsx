@@ -54,7 +54,7 @@ const UpdateAssignment = () => {
         console.log("submit")
 
         try {
-            const { data } = await axios.put(`http://localhost:5000/myUpdate/${_id}`, createData
+            const { data } = await axios.put(`https://job-word-server.vercel.app/myUpdate/${_id}`, createData
             )
             console.log("update", data)
 

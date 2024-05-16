@@ -50,7 +50,7 @@ const CreateAssignments = () => {
         console.log(createData)
         try {
 
-            const { data } = await axios.post('http://localhost:5000/assignment', createData)
+            const { data } = await axios.post('https://job-word-server.vercel.app/assignment', createData)
 
             console.log(data)
             if (data.insertedId) {

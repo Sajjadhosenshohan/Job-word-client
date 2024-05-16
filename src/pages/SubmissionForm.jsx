@@ -60,7 +60,7 @@ const SubmissionForm = () => {
 
         const submitToServer = async () => {
             try {
-                const { data } = await axios.post(`http://localhost:5000/mySubmission`, submitData);
+                const { data } = await axios.post(`https://job-word-server.vercel.app/mySubmission`, submitData);
                 console.log(data);
 
                 if (data.insertedId) {

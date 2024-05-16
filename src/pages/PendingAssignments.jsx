@@ -4,7 +4,7 @@ import axios from 'axios';
 import { AuthContext } from '../firebase/AuthProvider';
 import { Link } from 'react-router-dom';
 import { CiCalendarDate, CiMail } from 'react-icons/ci';
-const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
+const img1 = "https://i.ibb.co/DpmjmKN/pexels-sora-shimazaki-5926382-1.jpg"
 
 
 const PendingAssignments = () => {
@@ -19,7 +19,7 @@ const PendingAssignments = () => {
     const mySubmission = async () => {
       try {
 
-        const { data } = await axios.get('http://localhost:5000/allPending/pending', { withCredentials: true }, {
+        const { data } = await axios.get('https://job-word-server.vercel.app/allPending/pending', { withCredentials: true }, {
           params: { status: 'pending' }
         })
 

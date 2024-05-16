@@ -12,18 +12,14 @@ import Swal from "sweetalert2";
 
 const Assignments = () => {
     const { user } = useContext(AuthContext)
-
-    // const img1 = "https://drive.google.com/file/d/1QKe2KCS1PM27Ygw8jRulypCGrbmtJYwm/view?usp=sharing"
-
-    // const img4 = "https://i.ibb.co/Gpc3YVT/pexels-sudipta-1603650.jpg"
-    const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
+    const img1 = "https://i.ibb.co/Krpq83Y/pexels-otavio-4665064.jpg"
 
 
     const [assignments, setAssignment] = useState()
     const [singleAssignment, setSingleAssignment] = useState();
 
     const getData = async () => {
-        const { data } = await axios('http://localhost:5000/allAssignment')
+        const { data } = await axios('https://job-word-server.vercel.app/allAssignment')
         console.log(data)
         setAssignment(data)
         setSingleAssignment(data)
@@ -81,7 +77,7 @@ const Assignments = () => {
                 if (result.isConfirmed) {
                     const deleteIt = async () => {
                         try {
-                            const { data } = await axios.delete(`http://localhost:5000/delete/${id}`)
+                            const { data } = await axios.delete(`https://job-word-server.vercel.app/delete/${id}`)
                             console.log(data)
 
                             // show msg
@@ -118,12 +114,7 @@ const Assignments = () => {
             <Helmet>
                 <title>Assignments</title>
             </Helmet>
-            {/* <div className="text-center  mx-auto w-2/3 md:w-full">
-                <Fade direction="left">
-                    <h2 className="font-bold text-4xl mb-3" >See Assignments</h2>
-                    <p>Find here every single assignment</p>
-                </Fade>
-            </div> */}
+            
             <div className=" w-full h-[300px] bg-cover bg-center flex justify-center items-center rounded-lg mb-12" style={{ backgroundImage: `url(${img1})` }}>
                 <h2 className=" font-bold text-4xl text-white bg-primary p-2 rounded-md mt-72">Assignments</h2>
             </div>
@@ -162,35 +153,7 @@ const Assignments = () => {
                 }
             </div>
 
-            {/* <div className="relative">
-                <div className="card card-compact b shadow-xl overflow-hidden transition-transform duration-300 transform hover:scale-105">
-                    <Link to={`/roomdetails/`}>
-                        <img className="h-[300px] w-full" src={img4} alt="Shoes" />
-                    </Link>
-                    <span className="absolute top-0 right-0 px-3 py-1 bg-red-400 text-ellipsis text-white rounded-bl-lg">Price Per Night_$</span>
-                    <div className="card-body">
-                        <h2 className="text-3xl">fhdjk</h2>
-                        <h2 className="card-title">Review</h2>
-                    </div>
-                </div>
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 hover:opacity-100 flex justify-center items-center">
-                    <div className="text-white text-center">
-                        <h2 className="text-3xl mb-4">sdsdd</h2>
-                        <Link to={`/roomdetails/`} className="bg-blue-400 hover:bg-blue-600 text-white px-6 py-3 rounded-full inline-block transition-colors duration-300">
-                            View Details
-                        </Link>
-                    </div>
-                </div>
-            </div> */}
-
-            {/* <iframe
-                src={img1}
-                id="preview"
-                style={{ minHeight: '550px', width: '100%' }}
-                title="PDF Preview"
-            ></iframe> */}
-
-
+    
         </div>
     );
 };

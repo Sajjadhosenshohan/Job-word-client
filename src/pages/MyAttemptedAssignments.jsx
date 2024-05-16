@@ -23,7 +23,7 @@ const MyAttemptedAssignments = () => {
 
     const mySubmission = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/myAssignment/${user?.email}`, {withCredentials: true});
+        const { data } = await axios.get(`https://job-word-server.vercel.app/myAssignment/${user?.email}`, {withCredentials: true});
 
         console.log(23, data);
         setLoad(data)

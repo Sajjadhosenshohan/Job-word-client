@@ -40,19 +40,19 @@ const router = createBrowserRouter([
             {
                 path: "/update/:id",
                 element: <UpdateAssignment></UpdateAssignment>,
-                loader: ({params})=> fetch(`http://localhost:5000/updateData/${params.id}`)
+                loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
             },
             {
                 path: "/details/:id",
                 element: <DetailsAssignment></DetailsAssignment>,
                 // loader: ()=> fetch('fackadd.json')
-                loader: ({params})=> fetch(`http://localhost:5000/updateData/${params.id}`)
+                loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
             },
             {
                 path: "/submit/:id",
                 element: <SubmissionForm></SubmissionForm>,
                 // loader: ()=> fetch('fackadd.json')
-                loader: ({params})=> fetch(`http://localhost:5000/updateData/${params.id}`)
+                loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
             },
             {
                 path: "/pendingAssignments",
