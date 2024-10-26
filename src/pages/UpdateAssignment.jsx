@@ -8,6 +8,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
+import SecondaryBtn from "../components/SecondaryBtn";
 
 const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
@@ -54,7 +55,7 @@ const UpdateAssignment = () => {
         console.log("submit")
 
         try {
-            const { data } = await axios.put(`https://job-word-server.vercel.app/myUpdate/${_id}`, createData
+            const { data } = await axios.put(`http://localhost:5000/myUpdate/${_id}`, createData
             )
             console.log("update", data)
 
@@ -76,31 +77,31 @@ const UpdateAssignment = () => {
 
     }
     return (
-        <div>
+        <div className="section-to-section-margin">
             <div className=" w-full h-[300px] bg-cover bg-center flex flex-col md:flex-row justify-center items-center rounded-lg mb-12" style={{ backgroundImage: `url(${img1})` }}>
                 <h2 className=" font-bold text-xl lg:text-4xl text-white bg-primary p-2 rounded-md mt-72">Update Assignments</h2>
             </div>
 
 
-           
+
             <div className="flex gap-6  flex-col md:flex-row">
                 <div className="bg-white w-full md:w-1/3 ">
                     <section >
-                        <div className="container space-y-8 px-6 py-6 mx-auto">
+                        <div className="container  space-y-8 px-6 py-6 mx-auto">
                             <div>
 
                                 <h1 className="text-2xl font-semibold text-primary md:text-3xl">Company Information:</h1>
 
                             </div>
 
-                            <div className="p-4 shadow-lg dark:bg-secondary dark:text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105 rounded-lg  overflow-hidden  duration-500 transform   hover:bg-opacity-80 ">
+                            <div className="p-4 shadow-lg bg-secondary text-gray-800 hover:bg-primary hover:text-white transition-all hover:scale-105 rounded-lg  overflow-hidden  duration-500 transform   hover:bg-opacity-80 ">
                                 <span className="inline-block p-3 rounded-lg bg-primary text-white">
                                     <FaLocationDot />
                                 </span>
 
                                 <h2 className="mt-4 text-base font-medium">BJET Inc.</h2>
                                 <p className="mt-2 text-sm ">Tokeyo, Japan.</p>
-                                <p className="mt-2 text-sm text-primary flex justify-start items-center gap-1"><span><IoMdMail /> </span>
+                                <p className="mt-2 text-sm text-primary hover:text-white flex justify-start items-center gap-1"><span><IoMdMail /> </span>
                                     <span>hello@merakiui.com</span>
                                 </p>
                             </div>
@@ -114,21 +115,21 @@ const UpdateAssignment = () => {
 
 
                         <form onSubmit={handleUpdate}>
-                            <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>
+                            <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 text-slate-700'>
                                 <div>
-                                    <label className='text-gray-700 ' htmlFor='job_title'>
+                                    <label htmlFor='job_title'>
                                         Assignment Title
                                     </label>
                                     <input
                                         name='assignment_title'
                                         type='text'
                                         defaultValue={assignment_title}
-                                        className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                        className='block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                     />
                                 </div>
 
                                 <div>
-                                    <label className='text-gray-700 '>
+                                    <label >
                                         Email Address
                                     </label>
                                     <input
@@ -137,12 +138,12 @@ const UpdateAssignment = () => {
                                         name='email'
                                         disabled
                                         defaultValue={user?.email}
-                                        className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                        className='block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                     />
                                 </div>
 
                                 <div>
-                                    <label className='text-gray-700 '>
+                                    <label >
                                         Marks
                                     </label>
                                     <input
@@ -151,15 +152,15 @@ const UpdateAssignment = () => {
                                         defaultValue={marks}
 
 
-                                        className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                        className='block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                     />
                                 </div>
                                 <div className='flex flex-col gap-2 '>
-                                    <label className='text-gray-700'>Due date</label>
+                                    <label >Due date</label>
 
                                     {/* Date Picker Input Field */}
                                     <DatePicker
-                                        className='border p-2 rounded-md w-full'
+                                        className=' p-2 block w-full px-4 py-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                         selected={startDate}
                                         defaultValue={due_date}
                                         onChange={date => setStartDate(date)}
@@ -167,14 +168,14 @@ const UpdateAssignment = () => {
                                 </div>
 
                                 <div className='flex flex-col gap-2 '>
-                                    <label className='text-gray-700 '>
+                                    <label >
                                         Assignment level
                                     </label>
                                     <select
                                         name='assignment_level'
 
                                         defaultValue={assignment_level}
-                                        className='border p-2 rounded-md'
+                                        className=' p-2 block w-full px-4 py-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                     >
                                         <option value='Easy'>Easy</option>
                                         <option value='Medium'>Medium</option>
@@ -183,7 +184,7 @@ const UpdateAssignment = () => {
                                 </div>
 
                                 <div className='flex flex-col gap-2 '>
-                                    <label className='text-gray-700 '>
+                                    <label >
                                         Thumbnail Image URL
                                     </label>
 
@@ -191,28 +192,26 @@ const UpdateAssignment = () => {
                                         name='thumbnail'
                                         type="text"
                                         defaultValue={thumbnail}
-                                        className='border p-2 rounded-md'
+                                        className=' p-2 block w-full px-4 py-2  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                     >
                                     </input>
                                 </div>
 
                             </div>
                             <div className='flex flex-col gap-2 mt-4'>
-                                <label className='text-gray-700 ' htmlFor='description'>
+                                <label className=' ' htmlFor='description'>
                                     Description
                                 </label>
                                 <textarea
 
                                     defaultValue={description}
-                                    className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                    className='block w-full px-4 py-2 mt-2 text-slate-700  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                                     name='description'
                                     id='description'
                                 ></textarea>
                             </div>
-                            <div className=' mt-6'>
-                                <button type="submit" className='w-full px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-primary rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
-                                    Update
-                                </button>
+                            <div className='flex items-center justify-center mt-6'>
+                                <SecondaryBtn props={"Update"} />
                             </div>
                         </form>
                     </section>

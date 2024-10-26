@@ -7,11 +7,12 @@ import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { Fade } from "react-awesome-reveal";
 import { AuthContext } from "../firebase/AuthProvider";
 import { Helmet } from "react-helmet";
+import PrimaryBtn from "../components/PrimaryBtn";
 
 const Register = () => {
 
     const [showPass, setShowPass] = useState(false);
-    const { createUser, logout } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const [error, setError] = useState();
 
     const navigate = useNavigate()
@@ -56,104 +57,106 @@ const Register = () => {
     }
 
     return (
-        <div className="min-h-[50%] flex justify-center mb-5 bg-cover bg-center rounded-lg" style={{ backgroundImage: `url('https://i.ibb.co/0cBjSQk/register.webp')` }}>
+        <div className="border border-primary custom-margin flex lg:flex-row flex-col-reverse w-full  mx-auto mt-10  rounded-lg overflow-hidden">
 
             <Helmet>
                 <title>Jobword | Register</title>
             </Helmet>
 
+            {/* Left Image Section */}
+            <div className="lg:w-full hidden lg:block">
+                <div
+                    className="h-full w-full bg-cover"
+                    style={{
+                        backgroundImage:
+                            "url('login.png')",
+                    }}
+                ></div>
+            </div>
 
-            <div className="hero-content flex-col dark:text-black">
+            {/* Right Login Section */}
+            <div className="lg:max-w-xl w-full  p-8 flex flex-col justify-center">
 
+                <Fade direction="left">
+                    <h1 className="text-2xl lg:text-5xl font-bold text-center  mt-8 animate__animated animate__bounceInLeft animation-duration: 2s px-4 text-primary">Resister Now!</h1>
+                </Fade>
 
-                <div className="card shrink-0 w-full  max-w-md shadow-2xl bg-secondary">
-                    <Fade direction="left">
-                        <h1 className="text-2xl lg:text-5xl font-bold text-center mb-4 mt-4 animate__animated animate__bounceInLeft animation-duration: 2s px-4 bg-secondary">Resister Now!</h1>
-                    </Fade>
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
-                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                    {/* name */}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text ">Name</span>
+                        </label>
+                        <input type="text" placeholder="name" className=" block w-full px-4 py-3  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring "
+                            {...register("name", { required: true })}
+                        />
 
-                        {/* name */}
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text dark:text-black">Name</span>
-                            </label>
-                            <input type="text" placeholder="name" className="input input-bordered"
-                                {...register("name", { required: true })}
-                            />
-
-                            {errors.name && <span className='text-red-700 font-bold'>This field is required</span>}
-                        </div>
-
-                        {/* email */}
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text dark:text-black">Email</span>
-                            </label>
-                            <input type="text" placeholder="email" className="input input-bordered"
-                                {...register("email", { required: true })}
-                            />
-
-                            {errors.email && <span className='text-red-700 font-bold'>This field is required</span>}
-                        </div>
-
-                        {/* photo */}
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text dark:text-black">Photo URL</span>
-                            </label>
-                            <input type="text" placeholder="photo" className="input input-bordered"
-                                {...register("photo", { required: true })}
-                            />
-
-                            {errors.photo && <span className='text-red-700 font-bold'>This field is required</span>}
-                        </div>
-
-                        {/* password */}
-                        <div className="form-control ">
-                            <label className="label">
-                                <span className="label-text dark:text-black">Password</span>
-                            </label>
-                            <div className=" relative flex justify-center items-center">
-                                <input required type={showPass ? "text" : "password"}
-
-                                    placeholder="Password"
-                                    className="input input-bordered w-full"
-                                    {...register("password", { required: true })}
-
-                                />
-                                <span onClick={() => setShowPass(!showPass)} className=" font-bold text-3xl right-3 absolute ">
-
-                                    {
-                                        showPass ? <FaEyeSlash /> : <FaRegEye />
-                                    }
-
-                                </span>
-                            </div>
-
-                            <p className="text-red-700 font-bold">{error}</p>
-
-                        </div>
-
-                        <div className="flex items-center  mt-4">
-                            
-                            <button type="submit"  className="w-full px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                            Register
-                            </button>
-                        </div>
-
-                        {/* <div className="form-control mt-6">
-                            <button type="submit" className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">Register</button>
-                        </div> */}
-
-                    </form>
-
-                    <div className="px-8 flex justify-between mb-5">
-                        <p>Already Have Account?</p>
-                        <Link to="/login" className="text-blue-700 underline">Login Now</Link>
+                        {errors.name && <span className='text-red-700 font-bold'>This field is required</span>}
                     </div>
 
+                    {/* email */}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text ">Email</span>
+                        </label>
+                        <input type="text" placeholder="email" className=" block w-full px-4 py-3  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring "
+                            {...register("email", { required: true })}
+                        />
+
+                        {errors.email && <span className='text-red-700 font-bold'>This field is required</span>}
+                    </div>
+
+                    {/* photo */}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Photo URL</span>
+                        </label>
+                        <input type="text" placeholder="photo" className=" block w-full px-4 py-3  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring "
+                            {...register("photo", { required: true })}
+                        />
+
+                        {errors.photo && <span className='text-red-700 font-bold'>This field is required</span>}
+                    </div>
+
+                    {/* password */}
+                    <div className="form-control ">
+                        <label className="label">
+                            <span className="label-text">Password</span>
+                        </label>
+                        <div className=" relative flex justify-center items-center">
+                            <input required type={showPass ? "text" : "password"}
+
+                                placeholder="Password"
+                                className=" block w-full px-4 py-3  bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring "
+                                {...register("password", { required: true })}
+
+                            />
+                            <span onClick={() => setShowPass(!showPass)} className=" font-bold text-3xl right-3 absolute ">
+
+                                {
+                                    showPass ? <FaEyeSlash /> : <FaRegEye />
+                                }
+
+                            </span>
+                        </div>
+
+                        <p className="text-red-700 font-bold">{error}</p>
+
+                    </div>
+
+                    <div className='flex w-full items-center justify-center mt-6'>
+
+                        <PrimaryBtn props={"Register"} />
+                    </div>
+
+                </form>
+
+                <div className="text-center mt-4 flex justify-center items-center gap-2">
+                    <p>Already Have Account?</p>
+                    <Link to="/login" className="text-blue-700 underline">Login Now</Link>
                 </div>
+
             </div>
         </div>
     );

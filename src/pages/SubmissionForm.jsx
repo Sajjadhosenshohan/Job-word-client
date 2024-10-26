@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const SubmissionForm = () => {
     const { user } = useContext(AuthContext);
-    const load = useLoaderData(); 
+    const load = useLoaderData();
     const navigate = useNavigate()
     const {
         assignment_title,
@@ -49,7 +49,7 @@ const SubmissionForm = () => {
 
         const submitToServer = async () => {
             try {
-                const { data } = await axios.post(`https://job-word-server.vercel.app/mySubmission`, submitData);
+                const { data } = await axios.post(`http://localhost:5000/mySubmission`, submitData);
                 console.log(data);
 
                 if (data.insertedId) {
@@ -75,12 +75,12 @@ const SubmissionForm = () => {
 
 
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-secondary">
+        <section className="max-w-4xl custom-margin border-2 border-primary p-6 mx-auto bg-white rounded-md  dark:bg-secondary">
 
-            
+
 
             <h2 className=" font-bold text-3xl  rounded-md text-primary">Submission Form</h2>
-            <h2 className="text-lg mt-3 font-semibold capitalize text-black">Examinee: <span className="text-primary">{email}</span></h2>
+            <h2 className="text-lg mt-3 font-semibold  text-black">Examinee: <span className="text-primary">{email}</span></h2>
 
             <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-6 mt-4 text-black">
@@ -98,8 +98,16 @@ const SubmissionForm = () => {
 
                 </div>
 
-                <div className="flex justify-end mt-6">
-                    <button type="submit" className="w-full px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-primary rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Submit</button>
+                <div className="flex justify-center mt-6">
+                    
+
+                    <button type="submit" className={`text-center relative inline-flex items-center px-6 py-2 md:px-12 md:py-3 overflow-hidden text-lg font-medium text-primary border-2 border-primary rounded-full hover:text-white group hover:bg-gray-50`}>
+                        <span className="absolute left-0 block w-full h-0 transition-all bg-primary opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                        <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </span>
+                        <span className="relative">Submit</span>
+                    </button>
                 </div>
             </form>
         </section>

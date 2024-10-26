@@ -4,10 +4,12 @@ import Footer from "../components/Footer";
 
 const MainLayOut = () => {
     return (
-        <div className="space-y-12 p-5 max-w-6xl mx-auto">
-            <Nav></Nav>
-            <div className='min-h-[calc(100vh-306px)] '>
-                <Outlet></Outlet>
+        <div className="">
+            <div className="space-y-12 px-5 container mx-auto">
+                <Nav></Nav>
+                <div className='min-h-[calc(100vh-306px)] '>
+                    <Outlet></Outlet>
+                </div>
             </div>
             <Footer></Footer>
         </div>

@@ -9,6 +9,7 @@ export default {
       colors:{
         primary:'#1967d2',
         secondary:'#f0f6fe',
+        // secondary:'#e3f2fd',
       }
     },
   },
@@ -18,7 +19,7 @@ export default {
   daisyui: {
     themes: [
       "light",
-      "dark",
+      "synthwave",
     ],
   },
 }

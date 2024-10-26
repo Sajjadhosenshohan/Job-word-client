@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import {  useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../firebase/AuthProvider";
+import SecondaryBtn from "./SecondaryBtn";
 
 const GiveMark = () => {
     const { id } = useParams();
@@ -16,8 +17,8 @@ const GiveMark = () => {
     useEffect(() => {
         const submitToServer = async () => {
             try {
-                const { data } = await axios.get(`https://job-word-server.vercel.app/markAssignment/${id}`);
-                console.log(data);
+                const { data } = await axios.get(`http://localhost:5000/markAssignment/${id}`);
+                // console.log(data);
                 setMarkForm(data)
 
             } catch (error) {
@@ -77,7 +78,7 @@ const GiveMark = () => {
     
     const handleStatus = async (_id, submitData) => {
         try {
-            const { data } = await axios.patch(`https://job-word-server.vercel.app/statusUpdate/${_id}`, submitData);
+            const { data } = await axios.patch(`http://localhost:5000/statusUpdate/${_id}`, submitData);
             console.log(data);
             // setMarkForm(data);
             if (data.modifiedCount
@@ -99,12 +100,12 @@ const GiveMark = () => {
     
 
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-secondary text-black">
+        <section className="max-w-4xl custom-margin border-2 border-primary p-6 mx-auto bg-secondary rounded-md shadow-md text-slate-700">
             <form onSubmit={(e) => handleGiveMark(e, markForm._id, markForm.prevStatus, 'Complete')}>
                 <h2 className=" font-bold text-3xl  rounded-md text-primary">Give Mark Form</h2>
                 
 
-                <h2 className="text-lg mt-4 font-semibold capitalize ">Examinee email: {user?.email}</h2>
+                <h2 className="text-lg mt-4 font-semibold ">Examiner email: {user?.email}</h2>
 
                 <div className="grid grid-cols-1 gap-6 mt-4 ">
                     <div>
@@ -129,8 +130,9 @@ const GiveMark = () => {
 
                 </div>
 
-                <div className="flex justify-end mt-6">
-                    <button type="submit" className="w-full px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-primary rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Give mark</button>
+                <div className="flex items-center justify-center mt-6">
+                   
+                    <SecondaryBtn  props={"Give mark"}/>
                 </div>
             </form>
         </section>

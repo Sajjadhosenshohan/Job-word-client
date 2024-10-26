@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+    .section-to-section-margin {
+      @apply mt-8 mb-8 md:mt-16 md:mb-16 lg:mt-24 lg:mb-24;
+    }
+  
+    .custom-margin {
+      @apply mt-[110px] mb-5 md:mt-[130px] md:mb-12;
+    }
+  }

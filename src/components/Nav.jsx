@@ -24,7 +24,7 @@ const Nav = () => {
 
     const handleToggle = (e) => {
         if (e.target.checked) {
-            seTheme('dark');
+            seTheme('synthwave');
         }
         else {
             seTheme('light');
@@ -35,26 +35,26 @@ const Nav = () => {
     const Links = <>
 
         <li>
-            <NavLink to="/" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none  bg-secondary  font-bold my-anchor-element-classHome' : 'font-bold my-anchor-element-classHome'}>Home</NavLink>
+            <NavLink to="/" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none   font-bold my-anchor-element-classHome' : 'font-bold my-anchor-element-classHome '}>Home</NavLink>
 
         </li>
 
         <li>
-            <NavLink to="/assignments" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none  bg-secondary  font-bold my-anchor-element-class2' : 'font-bold my-anchor-element-class2'}> Assignments</NavLink>
+            <NavLink to="/assignments" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none    font-bold my-anchor-element-class2' : 'font-bold my-anchor-element-class2 '}> Assignments</NavLink>
         </li>
 
         {user &&
-            <li><NavLink to="/createAssignments" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none  bg-secondary  font-bold my-anchor-element-class3' : 'font-bold my-anchor-element-class3'}>
+            <li><NavLink to="/createAssignments" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none   font-bold my-anchor-element-class3' : 'font-bold my-anchor-element-class3'}>
                 Create Assignments
             </NavLink></li>
         }
 
         {user &&
-            <li><NavLink to="/pendingAssignments" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none  bg-secondary  font-bold my-anchor-element-class4' : 'font-bold my-anchor-element-class4'}>
+            <li><NavLink to="/pendingAssignments" className={({ isActive }) => isActive ? 'border-b-4 border-primary text-primary rounded-none    font-bold my-anchor-element-class4' : 'font-bold my-anchor-element-class4'}>
                 Pending Assignments
             </NavLink></li>
         }
-        
+
 
         {/* Home */}
         <Tooltip
@@ -85,14 +85,14 @@ const Nav = () => {
     </>
     return (
         <>
-            <div className="navbar  bg-secondary  shadow-lg py-2 rounded-lg">
+            <div className="navbar  bg-secondary text-slate-800   shadow-md py-2 fixed top-0 left-0 right-0 z-40 ">
 
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden pr-1">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow  rounded-box w-52 dark:text-gray-800 bg-white">
+                        <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow  rounded-box w-52 ">
                             {Links}
                         </ul>
                     </div>
@@ -103,13 +103,13 @@ const Nav = () => {
                         </div>
 
 
-                        <span className=" dark:text-primary">Jobword</span>
+                        <span className=" text-primary">Jobword</span>
 
 
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 dark:text-gray-800 ">
+                    <ul className="menu menu-horizontal px-1 ">
                         {Links}
                     </ul>
                 </div>

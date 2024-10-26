@@ -3,8 +3,9 @@ import { MdFeedback } from 'react-icons/md';
 import { IoBookmarks } from 'react-icons/io5';
 import { GrStatusGoodSmall } from 'react-icons/gr';
 import { useState } from 'react';
+import SecondaryBtn from './SecondaryBtn';
 const MyModal = ({ load }) => {
-    console.log(load)
+    // console.log(load)
 
     const { thumbnail, assignment_title, marks, status, giveMark, feedback, _id, pdfLink } = load
 
@@ -13,7 +14,7 @@ const MyModal = ({ load }) => {
     const handlePdf = () => {
         const fil = load;
         setPdf(fil.pdfLink);
-        console.log(fil);
+        // console.log(fil);
 
 
         setTimeout(() => {
@@ -23,7 +24,7 @@ const MyModal = ({ load }) => {
 
     return (
         <div >
-            <div className="flex  bg-white rounded-lg shadow-lg  dark:bg-secondary dark:text-gray-800 flex-col md:flex-row  transition-all gap-2 duration-500 transform   hover:bg-opacity-80  p-4">
+            <div className="flex  bg-secondary text-gray-800 rounded-lg shadow-lg   flex-col md:flex-row  transition-all gap-2 p-4">
                 <div className="w-full md:w-1/2 my-auto h-[250px] rounded-lg bg-cover bg-center" style={{ backgroundImage: `url(${thumbnail})` }}>
 
                 </div>
@@ -83,7 +84,9 @@ const MyModal = ({ load }) => {
 
                     <div className="flex justify-end mt-3 item-center">
 
-                        <button onClick={() => handlePdf(_id)} className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">View PDF</button>
+                        {/* <button onClick={() => handlePdf(_id)} className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">View PDF</button> */}
+
+                        <SecondaryBtn id={_id} handlePdf={handlePdf} props={"View PDF"}/>
                     </div>
 
 
@@ -96,8 +99,9 @@ const MyModal = ({ load }) => {
 
                             <iframe src={pdf} style={{ minHeight: '300px', width: '100%' }} title="PDF Preview" allow="autoplay" className="mb-12"></iframe>
                             <div className="modal-action flex justify-center">
-                                <form method="dialog" className="w-full">
-                                    <button className="w-full font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Close</button>
+                                <form method="dialog" className="flex items-center justify-center">
+                                    {/* <button className="w-full font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Close</button> */}
+                                    <SecondaryBtn props={"Close"}/>
                                 </form>
                             </div>
                         </div>

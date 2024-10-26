@@ -2,13 +2,15 @@
 import { CiCalendarDate, CiMail } from "react-icons/ci";
 import { IoBookmark } from "react-icons/io5";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../firebase/AuthProvider";
+import { useContext } from "react";
 
 const img1 = "https://i.ibb.co/XjccTng/pexels-olly-845451.jpg"
 
 const DetailsAssignment = () => {
-
+    const { user } = useContext(AuthContext)
     const load = useLoaderData();
-    console.log("details page", load)
+    // console.log("details page", load)
 
     const { email,
         _id,
@@ -17,7 +19,7 @@ const DetailsAssignment = () => {
         marks,
         description,
         due_date,
-        thumbnail } = load
+        thumbnail} = load
 
 
     return (
@@ -45,7 +47,7 @@ const DetailsAssignment = () => {
                             <IoBookmark className=" text-primary w-6 h-6" />
 
                             <p className="font-bold">
-                            Examinee: <span className="font-base text-primary">{email}</span>
+                            Created by: <span className="font-base text-primary">{load?.createdBy}</span>
                             </p>
                         </div>
 
@@ -53,7 +55,7 @@ const DetailsAssignment = () => {
                             <CiCalendarDate className=" text-primary w-6 h-6" />
 
                             <p className="font-bold">
-                                Due_date: <span className="font-base text-primary">{new Date(due_date).toLocaleDateString()}</span>
+                                Due date: <span className="font-base text-primary">{new Date(due_date).toLocaleDateString()}</span>
                             </p>
                         </div>
                         <div className="flex gap-2 items-center  justify-start mb-2">
@@ -65,11 +67,13 @@ const DetailsAssignment = () => {
                     </div>
 
 
-                    <div className="flex justify-start mt-3 item-center">
+                    {
+                        user?.email !== load?.createdBy && <div className="flex justify-start mt-3 item-center">
                         <Link to={`/submit/${_id}`}>
                             <button  className="font-medium text-white text-base md:text-xl md:pb-2 md:px-4 py-1 px-1 rounded-lg hover:bg-blue-900 bg-primary text-center">Take assignment</button>
                         </Link>
                     </div>
+                    }
                 </div>
             </div>
         </div>

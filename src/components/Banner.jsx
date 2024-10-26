@@ -15,10 +15,10 @@ const img3 = "https://i.ibb.co/KVfDHQw/pexels-divinetechygirl-1181271.jpg"
 const img4 = "https://i.ibb.co/qYnKB3y/pexels-thisisengineering-3861972.jpg"
 const Banner = () => {
     return (
-        <div className='rounded-lg'>
+        <div className='rounded-lg container mx-auto'>
 
 
-            <Swiper className="mySwiper h-[500px]"
+            <Swiper className="mySwiper mt-[100px] md:mt-[130px] h-[500px] rounded-lg"
                 // install Swiper modules
                 spaceBetween={30}
                 centeredSlides={true}
@@ -42,7 +42,7 @@ const Banner = () => {
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md space-y-6">
 
-                            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-300">
+                                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-300">
                                     Welcome to Job Assessment by BJET Inc. {""}
                                     <span style={{ color: 'red', fontWeight: 'bold' }}>
                                         <Typewriter
@@ -69,7 +69,7 @@ const Banner = () => {
                                     skills while contributing to the development of innovative web applications.</p>
 
                                 <div>
-                                    <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
+                                    <NavLink to="/login" > <button className="font-medium text-white text-sm md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center hover:bg-transparent border-2 border-primary hover:border-primary hover:text-primary transition-all duration-300 ">{`Explore now`}</button></NavLink>
                                 </div>
 
                             </div>
@@ -84,7 +84,7 @@ const Banner = () => {
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md space-y-6">
 
-                            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-300">
+                                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-300">
                                     Welcome to Job Assessment by BJET Inc. {""}
                                     <span style={{ color: 'red', fontWeight: 'bold' }}>
                                         <Typewriter
@@ -110,7 +110,7 @@ const Banner = () => {
                                 <p>This role offers an excellent chance for growth, where you will be able to enhance your
                                     skills while contributing to the development of innovative web applications.</p>
                                 <div>
-                                    <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
+                                    <NavLink to="/login" > <button className="font-medium text-white text-sm md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center hover:bg-transparent border-2 border-primary hover:border-primary hover:text-primary transition-all duration-300 ">{`Explore now`}</button></NavLink>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@ const Banner = () => {
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md space-y-6">
 
-                            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-300">
+                                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-300">
                                     Welcome to Job Assessment by BJET Inc. {""}
                                     <span style={{ color: 'red', fontWeight: 'bold' }}>
                                         <Typewriter
@@ -150,7 +150,7 @@ const Banner = () => {
                                 <p>This role offers an excellent chance for growth, where you will be able to enhance your
                                     skills while contributing the development of innovative web applications.</p>
                                 <div>
-                                    <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
+                                    <NavLink to="/login" > <button className="font-medium text-white text-sm md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center hover:bg-transparent border-2 border-primary hover:border-primary hover:text-primary transition-all duration-300 ">{`Explore now`}</button></NavLink>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@ const Banner = () => {
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md space-y-6">
 
-                            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-300">
+                                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-300">
                                     Welcome to Job Assessment by BJET Inc. {""}
                                     <span style={{ color: 'red', fontWeight: 'bold' }}>
                                         <Typewriter
@@ -190,7 +190,7 @@ const Banner = () => {
                                 <p>This role offers an excellent chance for growth, where you'll be able to enhance your
                                     skills while contributing to the development of innovative web applications.</p>
                                 <div>
-                                    <NavLink to="/login" > <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">{`Explore now`}</button></NavLink>
+                                    <NavLink to="/login" > <button className="font-medium text-white text-sm md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center hover:bg-transparent border-2 border-primary hover:border-primary hover:text-primary transition-all duration-300 ">{`Explore now`}</button></NavLink>
                                 </div>
                             </div>
                         </div>
