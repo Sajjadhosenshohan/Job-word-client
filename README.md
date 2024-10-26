@@ -1,4 +1,4 @@
-# Jobword - Junior MERN Stack Developer Job Assessment Project
+# Jobword - Innovative Corporate Learning Platform for Assignment Creation and Grading
 
 ## Live Link: [https://job-word.web.app](https://job-word.web.app)
 
