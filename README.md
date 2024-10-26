@@ -2,7 +2,7 @@
 
 ## Live Link: [https://job-word.web.app](https://job-word.web.app)
 
-## Server side : [https://github.com/Sajjadhosenshohan/Job-word-server](https://github.com/Sajjadhosenshohan/Job-word-server)
+## Server side repository: [https://github.com/Sajjadhosenshohan/Job-word-server](https://github.com/Sajjadhosenshohan/Job-word-server)
 
 
 
@@ -97,7 +97,7 @@ Start the server:
 ```
 ### Environment Variables(Server side)
 
-`BASE_URL` "http://localhost:5000"
+`BASE_URL` "https://job-word-server.vercel.app"
 
 `PORT`=5000
 

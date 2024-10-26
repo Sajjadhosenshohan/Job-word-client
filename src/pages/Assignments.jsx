@@ -20,7 +20,7 @@ const Assignments = () => {
 
 
     const getData = async () => {
-        const { data } = await axios(`http://localhost:5000/allAssignment?search=${search}`, { withCredentials: true })
+        const { data } = await axios(`https://job-word-server.vercel.app/allAssignment?search=${search}`, { withCredentials: true })
         // console.log(data)
         setAssignment(data)
         setSingleAssignment(data)
@@ -80,7 +80,7 @@ const Assignments = () => {
                 if (result.isConfirmed) {
                     const deleteIt = async () => {
                         try {
-                            const { data } = await axios.delete(`http://localhost:5000/delete/${id}`)
+                            const { data } = await axios.delete(`https://job-word-server.vercel.app/delete/${id}`)
                             console.log(data)
 
                             // show msg
