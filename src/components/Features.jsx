@@ -1,4 +1,3 @@
-import { Fade } from "react-awesome-reveal";
 import { BiSolidNavigation } from "react-icons/bi";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaFilter } from "react-icons/fa";
@@ -12,8 +11,7 @@ const Features = () => {
         <section className="section-to-section-margin">
             <div className="container mx-auto">
 
-                <Title/>
-
+                <Title title={'Our Features'} description={`Explore the key features designed to make your experience smoother—from managing assignments to secure authentication, everything you need is right here.`}/>
 
 
                 <div className="grid gap-6 my-16 lg:grid-cols-3 ">

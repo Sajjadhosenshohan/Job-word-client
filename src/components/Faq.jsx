@@ -4,7 +4,7 @@ const Faq = () => {
     return (
         <div className="section-to-section-margin container mx-auto">
 
-            <Title/>
+            <Title title={'FAQ'} description={`We're here to help! Whether you're curious about our services, need assistance navigating our platform`} />
 
             <div className="collapse collapse-plus bg-secondary">
                 <input type="radio" name="faq-accordion" defaultChecked />
