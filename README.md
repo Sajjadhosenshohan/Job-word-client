@@ -10,23 +10,25 @@
 
 ## Project Overview
 
-This project is part of a job assessment for BJET Inc., aimed at evaluating the skills of a junior MERN stack developer. The task is to build a visually appealing and functional web application for online group study assignments using MongoDB, Express.js, React, and Node.js. The application should allow users to create, manage, and grade assignments while ensuring responsive design and proper validation.
+The JobWord project is a web application designed for online group study, where all registered users are considered friends and can collaborate on assignments. This application allows users to create, submit, and grade assignments within a community-like environment, promoting group study and interactive learning.
 
 
 ## Technologies
 
-- Frontend: React, React Router Dom, TailwindCSS, Daisy ui, React Hook Form, Swiper,Vite
+- `Frontend` : React, React Router Dom, TailwindCSS, Daisy ui, React Hook Form, Swiper,Vite
 
-- Backend: Node.js, Express, MongoDB, Cookie-Parser, JSON Web Token (JWT),
-- Authentication: Firebase
+- `Backend` : Node.js, Express, MongoDB, Cookie-Parser, JSON Web Token (JWT),
+- `Authentication` : Firebase
 
 ## Features
 
-- Jwt: Secure login and registration using email/password and Google authentication using Jwt.
+- `Assignment Creation and Management` => Users can easily create assignments with detailed specifications, including title, marks, thumbnail image URL, assignment level, description, difficulty level (Easy, Medium, Hard), and due date. Only the creator can update or delete their assignments, ensuring effective management.
 
-- CRUD Operations: Assignment creator can update, delete his/her assignment but Assignment Examiner can  read, give mark using patch operation Job Assignment.
+- `Grading and Feedback System` => Users can view pending assignments from others and provide marks along with constructive feedback. This feature promotes collaboration and enhances the learning experience.
 
-- Assignment Management, Secure Authentication and Filtered Assignment Viewing :  Users and Examiner can easily add and update their list of tourist spots using a simple form.
+- `Search and Filter Functionality` => Users can search for assignments by name and filter them based on difficulty levels (Easy, Medium, Hard). This improves navigation and allows users to quickly find relevant assignments.
+
+- `Personalized My Assignments Section` => A dedicated section where users can access all their submitted assignments, along with links to view the PDFs of their submissions. This feature provides easy access to past work and helps users track their progress efficiently.
 
 
 ## Run Locally
