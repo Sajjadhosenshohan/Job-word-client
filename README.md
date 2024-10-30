@@ -13,6 +13,7 @@ The **JobWord** project is a web application designed for online group study, wh
 
 ---
 
+
 ## 🛠 Technologies
 
 - 🌐 **Frontend**: React, React Router Dom, TailwindCSS, Daisy UI, React Hook Form, Swiper, Vite
@@ -61,7 +62,7 @@ npm run dev
 
 ## 🌍 Environment Variables
 
-- `SERVER_URL`= your_server_uri
+- `VITE_API_URL`="http://localhost:5000"
 - `FIREBASE_API_KEY`= your_firebase_api_key
 - `FIREBASE_AUTH_DOMAIN`= your_firebase_auth_domain
 - `FIREBASE_PROJECT_ID`= your_firebase_project_id
@@ -80,7 +81,6 @@ npm run dev
 
 If you have any feedback, please reach out to us at mdshohansajjad@gmail.com
 
-For client-side setup and instructions, please refer to the : 👉 [Jobword client repository](https://github.com/Sajjadhosenshohan/Job-word-client)
 
 
 
