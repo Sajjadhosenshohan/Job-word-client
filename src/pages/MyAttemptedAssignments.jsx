@@ -29,12 +29,12 @@ const MyAttemptedAssignments = () => {
 
       } catch (error) {
         console.log(error.message)
-        toast.error("forbidden access");
+        // toast.error("forbidden access");
       }
     };
 
     mySubmission();
-  }, [user]);
+  }, [user?.email]);
 
 
   
