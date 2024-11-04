@@ -40,17 +40,17 @@ const router = createBrowserRouter([
             {
                 path: "/update/:id",
                 element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-                loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
+                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/updateData/${params.id}`)
             },
             {
                 path: "/details/:id",
                 element: <PrivateRoute><DetailsAssignment></DetailsAssignment></PrivateRoute>,
-                loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
+                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/updateData/${params.id}`)
             },
             {
                 path: "/submit/:id",
                 element: <PrivateRoute><SubmissionForm></SubmissionForm></PrivateRoute>,
-                loader: ({params})=> fetch(`https://job-word-server.vercel.app/updateData/${params.id}`)
+                loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/updateData/${params.id}`)
             },
             {
                 path: "/pendingAssignments",

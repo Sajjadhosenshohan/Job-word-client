@@ -20,7 +20,7 @@ const PendingAssignments = () => {
     const mySubmission = async () => {
       try {
 
-        const { data } = await axios.get('https://job-word-server.vercel.app/allPending/pending', { withCredentials: true }, {
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/allPending/pending`, { withCredentials: true }, {
           params: { status: 'pending' }
         })
 

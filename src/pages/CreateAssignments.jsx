@@ -48,7 +48,7 @@ const CreateAssignments = () => {
         console.log(createData)
         try {
 
-            const { data } = await axios.post('https://job-word-server.vercel.app/assignment', createData)
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/assignment`, createData)
 
             console.log(data)
             if (data.insertedId) {

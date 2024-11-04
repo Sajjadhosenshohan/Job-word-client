@@ -17,7 +17,7 @@ const GiveMark = () => {
     useEffect(() => {
         const submitToServer = async () => {
             try {
-                const { data } = await axios.get(`https://job-word-server.vercel.app/markAssignment/${id}`);
+                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/markAssignment/${id}`);
                 // console.log(data);
                 setMarkForm(data)
 
@@ -78,7 +78,7 @@ const GiveMark = () => {
     
     const handleStatus = async (_id, submitData) => {
         try {
-            const { data } = await axios.patch(`https://job-word-server.vercel.app/statusUpdate/${_id}`, submitData);
+            const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/statusUpdate/${_id}`, submitData);
             console.log(data);
             // setMarkForm(data);
             if (data.modifiedCount

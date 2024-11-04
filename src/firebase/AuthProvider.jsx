@@ -6,6 +6,7 @@ import axios from "axios";
 
 export const AuthContext = createContext(null);
 
+// eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState()
     // console.log(user)
@@ -69,7 +70,7 @@ const AuthProvider = ({ children }) => {
             // token send to server
             if (currentUser) {
 
-                axios.post('https://job-word-server.vercel.app/jwt', loggedUser, { withCredentials: true })
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, loggedUser, { withCredentials: true })
 
                     .then(res => {
                         console.log("token response", res.data)
@@ -78,7 +79,7 @@ const AuthProvider = ({ children }) => {
             }
             else {
 
-                axios.post('https://job-word-server.vercel.app/logout', loggedUser, { withCredentials: true })
+                axios.post(`${import.meta.env.VITE_API_URL}/logout`, loggedUser, { withCredentials: true })
 
                     .then(res => {
                         console.log("logout response", res.data)

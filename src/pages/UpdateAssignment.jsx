@@ -55,7 +55,7 @@ const UpdateAssignment = () => {
         console.log("submit")
 
         try {
-            const { data } = await axios.put(`https://job-word-server.vercel.app/myUpdate/${_id}`, createData
+            const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/myUpdate/${_id}`, createData
             )
             console.log("update", data)
 
