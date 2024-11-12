@@ -3,9 +3,7 @@ import Title from "./Title";
 const Faq = () => {
     return (
         <div className="section-to-section-margin container mx-auto">
-
             <Title title={'FAQ'} description={`We're here to help! Whether you're curious about our services, need assistance navigating our platform`} />
-
             <div className="collapse collapse-plus bg-secondary">
                 <input type="radio" name="faq-accordion" defaultChecked />
                 <div className="collapse-title text-xl font-medium text-primary">
