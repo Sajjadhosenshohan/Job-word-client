@@ -9,6 +9,7 @@
 
 ## 📊 Project Overview
 
+
 The **JobWord** project is a web application designed for online group study, where all registered users are considered friends and can collaborate on assignments. This application allows users to create, submit, and grade assignments within a community-like environment platform, promoting group study and interactive learning.
 
 ---
